@@ -1,0 +1,32 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AutoDocstring",
+		"Babel",
+		"Clickable URLs",
+		"Git",
+		"HTML-CSS-JS Prettify",
+		"Javascript Beautify",
+		"Jedi - Python autocompletion",
+		"Jinja2",
+		"JsFormat",
+		"LiveReload",
+		"Markdown Preview",
+		"nginx",
+		"Package Control",
+		"PackageResourceViewer",
+		"PostgreSQL Syntax Highlighting",
+		"Pretty JSON",
+		"Python Breakpoints",
+		"Sass",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-flake8",
+		"SummitLinter"
+	]
+}

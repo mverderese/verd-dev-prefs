@@ -1,0 +1,8 @@
+{
+    "brace_style": "collapse",
+    // "brace_style": "collapse-preserve-inline",
+    "end_with_newline": true,
+    "format_on_save": false,
+
+    "format_on_save_extensions": ["js", "json"]
+}

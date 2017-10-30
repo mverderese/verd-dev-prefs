@@ -1,0 +1,24 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AutoDocstring",
+		"Babel",
+		"Git",
+		"Jinja2",
+		"JsFormat",
+		"LiveReload",
+		"Markdown Preview",
+		"nginx",
+		"Package Control",
+		"Pretty JSON",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-flake8",
+		"SummitLinter",
+		"Terminal"
+	]
+}

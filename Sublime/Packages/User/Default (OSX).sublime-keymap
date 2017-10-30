@@ -1,0 +1,11 @@
+[
+  { "keys": ["ctrl+alt+r"], "command": "side_bar_move" },
+  { "keys": ["ctrl+shift+r"], "command": "quick_file_move" },
+  {"i_donated_to_sidebar_enhancements_developer": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DD4SL2AHYJGBW"},
+
+    // { "keys": ["ctrl+tab"], "command": "unbound" },
+    // { "keys": ["ctrl+shift+tab"], "command": "unbound" },
+
+    // { "keys": ["super+shift+["], "command": "unbound" },
+    // { "keys": ["super+shift+]"], "command": "unbound" }
+]

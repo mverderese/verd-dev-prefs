@@ -1,0 +1,8 @@
+{
+	"extensions":
+	[
+		".zshrc",
+		"options",
+		"zsh-theme"
+	]
+}
