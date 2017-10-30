@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 if [[ -z "$1" ]]; then
     echo "Usage: $0 ENV [HOST_INDEX]"
@@ -17,3 +17,4 @@ if [[ -n "$2" ]]; then
 else
     eval "$cmd"
 fi
+
