@@ -2,6 +2,11 @@
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+file=/usr/local/bin/brew
+if [ ! -e "$file" ]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
 # Create symbolic links for sublime packages
 cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
 rm -rf ./User
@@ -14,6 +19,8 @@ git config --global core.editor "subl -n -w"
 file=~/.oh-my-zsh/oh-my-zsh.sh
 if [ ! -e "$file" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    echo "Run this script again!"
+    exit
 fi
 
 # Create ssh key
@@ -45,8 +52,7 @@ ln -s "$SCRIPT_DIR/ssh/ssh_config" ./.ssh/config
 brew install hub
 
 # Install node
-brew install node@6
-ln -s /usr/local/opt/node@6/bin/node /usr/local/bin/node
+brew install node@8
 
 # Install cachegrind
 brew install qcachegrind

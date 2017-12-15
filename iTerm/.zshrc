@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # Recommended by Homebrew
-export PATH="/usr/local/opt/node@6/bin:$PATH"
+export PATH="/usr/local/opt/node@8/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/mike/.oh-my-zsh
