@@ -77,7 +77,8 @@ npm install --global trash-cli
 brew install terminal-notifier
 
 # Install python3
-brew install python3
+brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/ec545d45d4512ace3570782283df4ecda6bb0044/Formula/python3.rb
+brew pin python3
 
 # Install useful tools
 brew install tree

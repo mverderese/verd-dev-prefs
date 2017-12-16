@@ -13,7 +13,7 @@ cmd="aws ec2 describe-instances --filters '$filter' --query '$query' --output te
 
 if [[ -n "$2" ]]; then
     hostname=$(eval "$cmd" | head -"$2" | tail -1 | awk '{print $3}')
-    exec ssh -A -i ~/.ssh/id_aws_${env} ubuntu@${hostname}
+    exec ssh -A -i ~/.ssh/renew_${env}.pem ubuntu@${hostname}
 else
     eval "$cmd"
 fi
