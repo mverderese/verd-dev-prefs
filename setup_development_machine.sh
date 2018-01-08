@@ -41,8 +41,8 @@ ln -s "$SCRIPT_DIR/iTerm/.zshrc" ./.zshrc
 rm -f ./.bash_profile
 ln -s "$SCRIPT_DIR/iTerm/.bash_profile" ./.bash_profile
 
-rm -f ./.oh-my-zsh/themes/robbyrussell.zsh-theme
-ln -s "$SCRIPT_DIR/iTerm/robbyrussell.zsh-theme" ./.oh-my-zsh/themes/robbyrussell.zsh-theme
+rm -f ./.oh-my-zsh/themes/mverderese.zsh-theme
+ln -s "$SCRIPT_DIR/iTerm/mverderese.zsh-theme" ./.oh-my-zsh/themes/mverderese.zsh-theme
 
 # Create symbolic link for ssh config
 rm -f ./.ssh/config
