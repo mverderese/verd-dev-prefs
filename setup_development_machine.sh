@@ -61,9 +61,6 @@ brew install graphviz
 # Install speedtest_cli
 brew install speedtest_cli
 
-# Install AWS CLI
-brew install awscli
-
 # Upgrade npm
 npm install --global npm
 
@@ -83,7 +80,6 @@ brew pin python3
 # Install useful tools
 brew install tree
 brew install tig
-brew install httpie
 brew install postgresql
 
 # Upgrade brews
@@ -92,16 +88,9 @@ brew upgrade
 terminal-notifier -message "Root password needed"
 
 # Install python3 packages
+sudo -H python3 -m pip install --upgrade pip
 sudo -H python3 -m pip install virtualenv
 sudo -H python3 -m pip install flake8
-virtualenv --python=python3 ~/.my_virtualenv/
-
-# Install flake8, ipython, and pandas
-. ~/.my_virtualenv/bin/activate
-pip3 install flake8
-pip3 install ipython
-pip3 install pandas
-
-deactivate
+sudo -H python3 -m pip install awscli
 
 terminal-notifier -message "Done setting up dev machine"
