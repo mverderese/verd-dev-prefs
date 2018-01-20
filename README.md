@@ -29,7 +29,7 @@ You'll be prompted for your root password a few times
     2. `termnot`
         - Usage: `termnot "This is a message"`
         - Usually used after a long script `./script.sh && termnot "I'm done!"`
-    3 `docker-destroy-all` Delete all docker containers and images on the machine
+    3. `docker-destroy-all` Delete all docker containers and images on the machine
     4. `rm` - Aliases `rm` to use installed trash module instead. Files deleted with `rm` are sent to
     the trash for easy recovery. If you need the system `rm` command run `/bin/rm <filename>`
     5. `setup-virtualenv <python_version (default 2.7)>` - Setup a virtualenv at `./.virtualenv/` in
