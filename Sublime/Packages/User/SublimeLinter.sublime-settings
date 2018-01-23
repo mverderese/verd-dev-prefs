@@ -61,6 +61,11 @@
                 "ignore": "channel",
                 "limit": null,
                 "only": ""
+            },
+            "yamllint": {
+                "@disable": false,
+                "args": "-c ${project}/.yamllint",
+                "excludes": []
             }
         },
         "mark_style": "outline",
