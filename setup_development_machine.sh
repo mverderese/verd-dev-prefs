@@ -88,25 +88,9 @@ brew upgrade
 terminal-notifier -message "Root password needed"
 
 # Install python3 packages
-<<<<<<< HEAD
-sudo -H pip3 install --upgrade pip
-sudo -H python3 -m pip install virtualenv
-sudo -H python3 -m pip install flake8
-sudo -H python3 -m pip install awscli
-virtualenv --python=python3 ~/.my_virtualenv/
-
-# Install flake8, ipython, and pandas
-. ~/.my_virtualenv/bin/activate
-pip3 install flake8
-pip3 install ipython
-pip3 install pandas
-
-deactivate
-=======
 sudo -H python3 -m pip install --upgrade pip
 sudo -H python3 -m pip install virtualenv
 sudo -H python3 -m pip install flake8
 sudo -H python3 -m pip install awscli
->>>>>>> b4550cc9421914bacb956f4d54d3df89a4ee6065
 
 terminal-notifier -message "Done setting up dev machine"
