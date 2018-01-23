@@ -61,9 +61,6 @@ brew install graphviz
 # Install speedtest_cli
 brew install speedtest_cli
 
-# Install AWS CLI
-brew install awscli
-
 # Upgrade npm
 npm install --global npm
 
@@ -92,8 +89,10 @@ brew upgrade
 terminal-notifier -message "Root password needed"
 
 # Install python3 packages
+sudo -H pip3 install --upgrade pip
 sudo -H python3 -m pip install virtualenv
 sudo -H python3 -m pip install flake8
+sudo -H python3 -m pip install awscli
 virtualenv --python=python3 ~/.my_virtualenv/
 
 # Install flake8, ipython, and pandas

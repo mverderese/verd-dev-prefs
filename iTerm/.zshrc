@@ -4,6 +4,7 @@ export PATH="/usr/local/opt/node@8/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/mike/.oh-my-zsh
+export VIRTUAL_ENV_DISABLE_PROMPT=
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -77,7 +78,7 @@ setup-virtualenv() {
     # Create virtualenv
     file=./.virtualenv/bin/activate
     if [ ! -e "$file" ]; then
-        virtualenv ./.virtualenv
+        virtualenv ./.virtualenv --python="${1:-python2.7}"
     else
         echo "virtualenv already created"
     fi

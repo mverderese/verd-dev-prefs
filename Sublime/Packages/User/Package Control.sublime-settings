@@ -10,6 +10,7 @@
 		"Clickable URLs",
 		"Git",
 		"HTML-CSS-JS Prettify",
+		"Indent XML",
 		"Javascript Beautify",
 		"Jedi - Python autocompletion",
 		"Jinja2",
@@ -26,8 +27,9 @@
 		"Sass",
 		"SideBarEnhancements",
 		"SublimeLinter",
-		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-eslint",
 		"SublimeLinter-flake8",
-		"SummitLinter"
+		"SummitLinter",
+		"xml2json"
 	]
 }
