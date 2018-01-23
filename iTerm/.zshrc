@@ -62,9 +62,6 @@ alias c='clear'
 # https://unix.stackexchange.com/a/148548/162182
 alias sudo='sudo '
 
-# Python aliases
-alias ipython='. ~/.my_virtualenv/bin/activate && ipython && deactivate'
-
 alias fancytree='tree -lahgupC'
 
 # Instead of deleting files with rm, send them to the trash.
