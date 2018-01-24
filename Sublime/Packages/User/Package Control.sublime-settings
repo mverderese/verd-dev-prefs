@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Ansible",
 		"AutoDocstring",
 		"Babel",
 		"Clickable URLs",
@@ -24,10 +25,12 @@
 		"PackageResourceViewer",
 		"PostgreSQL Syntax Highlighting",
 		"Pretty JSON",
+		"Project Specific Syntax Settings",
 		"Python Breakpoints",
 		"Sass",
 		"SideBarEnhancements",
 		"SublimeLinter",
+		"SublimeLinter-contrib-ansible-lint",
 		"SublimeLinter-contrib-yamllint",
 		"SublimeLinter-eslint",
 		"SublimeLinter-flake8",
