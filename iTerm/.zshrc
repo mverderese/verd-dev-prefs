@@ -88,7 +88,7 @@ setup-virtualenv() {
     if [ ! -e "$file" ]; then
         echo "No requirements.txt found"
     else
-        pip3 install -r "$file"
+        pip3 install -r "$file" --process-dependency-links
     fi
 }
 
