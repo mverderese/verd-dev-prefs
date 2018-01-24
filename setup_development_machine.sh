@@ -92,5 +92,6 @@ sudo -H python3 -m pip install --upgrade pip
 sudo -H python3 -m pip install virtualenv
 sudo -H python3 -m pip install flake8
 sudo -H python3 -m pip install awscli
+sudo -H python3 -m pip install yamllint
 
 terminal-notifier -message "Done setting up dev machine"
