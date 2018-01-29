@@ -14,7 +14,7 @@
 		{
 			"ansiblelint":
 			{
-				"@disable": false,
+				"@disable": true,
 				"R": "",
 				"args":
 				[
@@ -120,7 +120,7 @@
 			},
 			"yamllint":
 			{
-				"@disable": true,
+				"@disable": false,
 				"args": "-c ${project}/.yamllint",
 				"excludes":
 				[
