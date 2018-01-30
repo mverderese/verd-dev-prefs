@@ -57,6 +57,17 @@ gpasf () {
     done
 }
 
+gloge () {
+    current_branch="$(git branch | sed -n 's/^\* //p')"
+    echo "Current branch: ${current_branch}"
+    ticket_code=$(echo "${current_branch}" | sed 's/\(REN-[0-9]*\).*/\1/')
+    echo "Ticket code: ${ticket_code}\n"
+    output=$(git log ${1:-reviewed}..${current_branch} --pretty=format:'%s' | sed "s/${ticket_code} /- /g")
+    echo "${output}"
+    echo "${output}" | pbcopy
+    echo "\nLog copied to clipboard!"
+}
+
 alias c='clear'
 
 # https://unix.stackexchange.com/a/148548/162182
