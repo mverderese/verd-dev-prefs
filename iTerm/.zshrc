@@ -30,6 +30,9 @@ docker-destroy-all() {
      docker rmi $(docker images -q) -f
 }
 
+denter() { docker exec -it $1 /bin/bash; }
+dlog() { docker logs $1 --tail 150 -f }
+
 # https://github.com/github/hub#aliasing
 eval "$(hub alias -s)"
 
@@ -84,15 +87,15 @@ alias ec2ssh='~/.bin/ec2ssh.sh'
 setup-virtualenv() {
 
     # Create virtualenv
-    file=./.virtualenv/bin/activate
+    file=./.venv/bin/activate
     if [ ! -e "$file" ]; then
-        virtualenv ./.virtualenv --python="${1:-python2.7}"
+        virtualenv ./.venv --python="${1:-python2.7}"
     else
         echo "virtualenv already created"
     fi
 
     # Activate virtualenv
-    . ./.virtualenv/bin/activate
+    . ./.venv/bin/activate
 
     # Install requirements
     file=./requirements.txt
@@ -104,16 +107,16 @@ setup-virtualenv() {
 }
 
 teardown-virtualenv() {
-    file=./.virtualenv/bin/activate
+    file=./.venv/bin/activate
     if [ ! -e "$file" ]; then
         echo "No virtualenv found at $file"
     else
         deactivate
-        rm -rf ./.virtualenv/
+        rm -rf ./.venv/
     fi
 }
 
-alias activate-virtualenv='. ./.virtualenv/bin/activate'
+alias activate-virtualenv='. ./.venv/bin/activate'
 
 function get-secret() {
     local bucket='com.renew.s3.secrets'
