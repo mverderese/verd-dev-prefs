@@ -32,7 +32,7 @@ You'll be prompted for your root password a few times
     3. `docker-destroy-all` Delete all docker containers and images on the machine
     4. `rm` - Aliases `rm` to use installed trash module instead. Files deleted with `rm` are sent to
     the trash for easy recovery. If you need the system `rm` command run `/bin/rm <filename>`
-    5. `setup-virtualenv <python_version (default 2.7)>` - Setup a virtualenv at `./.virtualenv/` in
+    5. `setup-virtualenv <python_version (default 2.7)>` - Setup a virtualenv at `./.venv/` in
     the current directory
     6. `teardown-virtualenv` - removes virtualenv in current directory
     7. `activate-virtualenv` - activates the virtualenv in current directory
