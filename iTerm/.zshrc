@@ -11,6 +11,8 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="mverderese"
 
+zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_aws
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -33,6 +35,28 @@ docker-destroy-all() {
 denter() { docker exec -it $1 /bin/bash; }
 dlog() { docker logs $1 --tail 150 -f }
 
+docker-rebuild-image() {
+
+    if [[ -z "$1" ]]; then
+        echo 'Must provide name of service (no number. use underscores). For example: "renew_api"'
+        return 1
+    fi
+
+    docker_container=$1
+
+    dev stop local-dev
+    docker rm "${docker_container}_1"
+
+    docker_image="${docker_container//_/-}"
+
+    docker rmi "${docker_image}"
+    docker images | grep "${docker_image}" | awk '{print $3}' | xargs docker rmi
+
+    dev build local-dev
+    dev start local-dev
+}
+
+
 # https://github.com/github/hub#aliasing
 eval "$(hub alias -s)"
 
@@ -50,6 +74,7 @@ alias gbdr='git push origin --delete "$1"'
 alias gcr='git checkout reviewed'
 alias gbav='git branch --all -vv'
 alias gbv='git branch -vv'
+alias gdc='git diff --cached'
 alias tia='tig --all'
 
 gpasf () {
