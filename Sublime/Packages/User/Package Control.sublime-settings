@@ -35,6 +35,7 @@
 		"SublimeLinter-eslint",
 		"SublimeLinter-flake8",
 		"SummitLinter",
+		"TypeScript",
 		"xml2json"
 	]
 }

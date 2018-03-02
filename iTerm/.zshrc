@@ -76,6 +76,7 @@ alias gbav='git branch --all -vv'
 alias gbv='git branch -vv'
 alias gdc='git diff --cached'
 alias tia='tig --all'
+alias gl='git pull --rebase'
 
 gpasf () {
     for d in *; do
