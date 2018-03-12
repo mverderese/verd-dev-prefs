@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # Recommended by Homebrew
 export PATH="/usr/local/opt/node@8/bin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/mike/.oh-my-zsh
@@ -62,7 +63,8 @@ eval "$(hub alias -s)"
 
 # https://github.com/github/hub/issues/1219
 ghpr() {
-    git push &&
+    current_branch="$(git branch | sed -n 's/^\* //p')"
+    git push -u origin ${current_branch} &&
     URL=$(git pull-request -b "${1:-reviewed}") &&
     sleep 1 &&
     open $URL
@@ -92,8 +94,8 @@ gloge () {
     ticket_code=$(echo "${current_branch}" | sed 's/\(REN-[0-9]*\).*/\1/')
     echo "Ticket code: ${ticket_code}\n"
     output=$(git log ${1:-reviewed}..${current_branch} --pretty=format:'%s' | sed "s/${ticket_code} /- /g")
-    echo "${output}"
-    echo "${output}" | pbcopy
+    echo "${output}" | tac
+    echo "${output}" | tac | pbcopy
     echo "\nLog copied to clipboard!"
 }
 

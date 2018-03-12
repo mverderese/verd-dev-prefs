@@ -51,6 +51,11 @@ ln -s "$SCRIPT_DIR/ssh/ssh_config" ./.ssh/config
 # Install hub - git alternative
 brew install hub
 
+# Install tac
+# https://unix.stackexchange.com/a/114042/162182
+brew install coreutils
+ln -s /usr/local/bin/gtac /usr/local/bin/ta
+
 # Install node
 brew install node@8
 
