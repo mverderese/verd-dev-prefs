@@ -117,7 +117,7 @@ setup-virtualenv() {
     # Create virtualenv
     file=./.venv/bin/activate
     if [ ! -e "$file" ]; then
-        virtualenv ./.venv --python="${1:-python2.7}"
+        virtualenv ./.venv --python="${1:-python3}"
     else
         echo "virtualenv already created"
     fi
