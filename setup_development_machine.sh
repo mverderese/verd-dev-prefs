@@ -57,7 +57,10 @@ brew install coreutils
 ln -s /usr/local/bin/gtac /usr/local/bin/ta
 
 # Install node
-brew install node@8
+brew install nvm
+mkdir -p ~/.nvm
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh install 8.9.3
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh use 8.9.3
 
 # Install cachegrind
 brew install qcachegrind
@@ -67,13 +70,13 @@ brew install graphviz
 brew install speedtest_cli
 
 # Upgrade npm
-PATH="/usr/local/opt/node@8/bin:$PATH" npm install --global npm
+npm install --global npm
 
 # Install npm-ls-scripts
-PATH="/usr/local/opt/node@8/bin:$PATH" npm install --global npm-ls-scripts
+npm install --global npm-ls-scripts
 
 # Install trash-cli
-PATH="/usr/local/opt/node@8/bin:$PATH" npm install --global trash-cli
+npm install --global trash-cli
 
 # Install terminal notifier
 brew install terminal-notifier
@@ -86,6 +89,7 @@ brew pin python3
 brew install tree
 brew install tig
 brew install postgresql
+brew install yarn
 
 # Upgrade brews
 brew upgrade
