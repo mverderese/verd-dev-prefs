@@ -19,7 +19,7 @@ git config --global core.editor "subl -n -w"
 file=~/.oh-my-zsh/oh-my-zsh.sh
 if [ ! -e "$file" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    echo "Run this script again!"
+    echo "\n\n\nRun this script again!"
     exit
 fi
 
@@ -67,13 +67,13 @@ brew install graphviz
 brew install speedtest_cli
 
 # Upgrade npm
-npm install --global npm
+PATH="/usr/local/opt/node@8/bin:$PATH" npm install --global npm
 
 # Install npm-ls-scripts
-npm install --global npm-ls-scripts
+PATH="/usr/local/opt/node@8/bin:$PATH" npm install --global npm-ls-scripts
 
 # Install trash-cli
-npm install --global trash-cli
+PATH="/usr/local/opt/node@8/bin:$PATH" npm install --global trash-cli
 
 # Install terminal notifier
 brew install terminal-notifier

@@ -1,7 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # Recommended by Homebrew
 export PATH="/usr/local/opt/node@8/bin:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/mike/.oh-my-zsh
@@ -94,8 +93,8 @@ gloge () {
     ticket_code=$(echo "${current_branch}" | sed 's/\(REN-[0-9]*\).*/\1/')
     echo "Ticket code: ${ticket_code}\n"
     output=$(git log ${1:-reviewed}..${current_branch} --pretty=format:'%s' | sed "s/${ticket_code} /- /g")
-    echo "${output}" | tac
-    echo "${output}" | tac | pbcopy
+    echo "${output}" | /usr/local/opt/coreutils/libexec/gnubin/tac
+    echo "${output}" | /usr/local/opt/coreutils/libexec/gnubin/tac | pbcopy
     echo "\nLog copied to clipboard!"
 }
 
