@@ -59,8 +59,8 @@ ln -s /usr/local/bin/gtac /usr/local/bin/ta
 # Install node
 brew install nvm
 mkdir -p ~/.nvm
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh install 8.9.3
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh use 8.9.3
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 8.9.3
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 8.9.3
 
 # Install cachegrind
 brew install qcachegrind
