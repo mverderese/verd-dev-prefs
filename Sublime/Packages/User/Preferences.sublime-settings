@@ -80,7 +80,10 @@
 		"CVS",
 		"node_modules",
 		".vagrant",
-		".virtualenv"
+		".virtualenv",
+		".venv",
+		".yarn_cache",
+		"compiled"
 	],
 	"font_size": 16,
 	"ignored_packages":

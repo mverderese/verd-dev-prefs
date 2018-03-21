@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # Recommended by Homebrew
-# export PATH="/usr/local/opt/node@8/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
