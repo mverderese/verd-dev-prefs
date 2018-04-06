@@ -93,6 +93,7 @@
 		"INI",
 		"ISML",
 		"JSONLint",
+		"SublimeLinter-eslint",
 		"Vintage"
 	],
 	"rulers":
