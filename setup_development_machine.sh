@@ -91,6 +91,9 @@ brew install tig
 brew install postgresql
 brew install yarn
 
+# Install python2
+brew install python@2
+
 # Upgrade brews
 brew upgrade
 
