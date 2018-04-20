@@ -25,6 +25,14 @@ source $ZSH/oh-my-zsh.sh
 
 termnot() { terminal-notifier -message "$1" -execute 'open /Applications/iTerm.app'; }
 
+utime () {
+    if [[ -n "$1" ]]; then
+        date -r $1;
+    else
+        date +%s;
+    fi
+}
+
 docker-destroy-all() {
      # Stop all containers
      docker stop $(docker ps -a -q)
