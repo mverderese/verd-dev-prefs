@@ -66,6 +66,8 @@ docker-rebuild-image() {
     dev start local-dev
 }
 
+# https://github.com/renewdotcom/renew-dev-tools/pull/1/
+export AWS_PROFILE=mfa_session
 
 # https://github.com/github/hub#aliasing
 eval "$(hub alias -s)"
@@ -120,6 +122,7 @@ alias fancytree='tree -lahgupC'
 alias rm=trash
 
 alias ec2ssh='~/.bin/ec2ssh.sh'
+alias get-secret='~/.bin/get-secret.sh'
 
 setup-virtualenv() {
 
@@ -154,10 +157,3 @@ teardown-virtualenv() {
 }
 
 alias activate-virtualenv='. ./.venv/bin/activate'
-
-function get-secret() {
-    local bucket='com.renew.s3.secrets'
-    local env=$1
-    local secret=$2
-    echo "$(aws s3 cp s3://$bucket/$env/$secret -)" | xargs echo -n | pbcopy
-}
