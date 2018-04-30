@@ -23,6 +23,11 @@ plugins=(git sublime osx docker virtualenv tig ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYTHON_EXEC="$(PYENV_VERSION=2.7.14 pyenv which python2)"
+
 termnot() { terminal-notifier -message "$1" -execute 'open /Applications/iTerm.app'; }
 
 utime () {
@@ -129,7 +134,7 @@ setup-virtualenv() {
     # Create virtualenv
     file=./.venv/bin/activate
     if [ ! -e "$file" ]; then
-        virtualenv ./.venv --python="${1:-python3}"
+        $(PYENV_VERSION=3.5.5 pyenv which python) -m virtualenv ./.venv --python="${1:-python3}"
     else
         echo "virtualenv already created"
     fi

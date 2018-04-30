@@ -81,29 +81,33 @@ npm install --global trash-cli
 # Install terminal notifier
 brew install terminal-notifier
 
-# Install python3
-brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/ec545d45d4512ace3570782283df4ecda6bb0044/Formula/python3.rb
-brew pin python3
-
 # Install useful tools
 brew install tree
 brew install tig
 brew install postgresql
 brew install yarn
 
-# Install python2
-brew install python@2
+brew uninstall python3
+brew uninstall python2
 
 # Upgrade brews
 brew upgrade
 
+# Install python3
+xcode-select --install
+brew install pyenv
+pyenv install 2.7.14 --skip-existing
+ln -s "$(PYENV_VERSION=2.7.14 pyenv which python2)" /usr/local/bin/python2
+pyenv install 3.5.5 --skip-existing
+pyenv global 3.5.5
+
 terminal-notifier -message "Root password needed"
 
 # Install python3 packages
-sudo -H python3 -m pip install --upgrade pip
-sudo -H python3 -m pip install virtualenv
-sudo -H python3 -m pip install flake8
-sudo -H python3 -m pip install awscli
-sudo -H python3 -m pip install yamllint
+sudo -H $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install --upgrade pip
+sudo -H $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install virtualenv
+sudo -H $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install flake8
+sudo -H $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install awscli
+sudo -H $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install yamllint
 
 terminal-notifier -message "Done setting up dev machine"
