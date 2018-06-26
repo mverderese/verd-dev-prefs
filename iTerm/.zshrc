@@ -28,7 +28,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 export PYTHON_EXEC="$(PYENV_VERSION=2.7.14 pyenv which python2)"
 
-termnot() { terminal-notifier -message "$1" -execute 'open /Applications/iTerm.app'; }
+termnot() { terminal-notifier -sound Ping -message "$1" -execute 'open /Applications/iTerm.app'; }
 
 utime () {
     if [[ -n "$1" ]]; then

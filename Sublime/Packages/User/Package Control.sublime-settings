@@ -17,7 +17,6 @@
 		"Jinja2",
 		"JsFormat",
 		"LiveReload",
-		"Markdown Preview",
 		"MarkdownLivePreview",
 		"MarkdownTOC",
 		"nginx",
@@ -38,6 +37,7 @@
 		"SublimeLinter-flake8",
 		"SummitLinter",
 		"TypeScript",
-		"xml2json"
+		"xml2json",
+		"MarkdownPreview"
 	]
 }
