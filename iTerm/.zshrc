@@ -120,7 +120,7 @@ alias c='clear'
 # https://unix.stackexchange.com/a/148548/162182
 alias sudo='sudo '
 
-alias fancytree='tree -lahgupC'
+alias fancytree='tree -lhgupC'
 
 # Instead of deleting files with rm, send them to the trash.
 # Depends on #https://github.com/sindresorhus/trash-cli
