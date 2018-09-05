@@ -104,10 +104,10 @@ pyenv global 3.5.5
 terminal-notifier -message "Root password needed"
 
 # Install python3 packages
-sudo -H $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install --upgrade pip
-sudo -H $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install virtualenv
-sudo -H $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install flake8
-sudo -H $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install awscli
-sudo -H $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install yamllint
+$(PYENV_VERSION=3.5.5 pyenv which python) -m pip install --upgrade pip
+$(PYENV_VERSION=3.5.5 pyenv which python) -m pip install virtualenv
+$(PYENV_VERSION=3.5.5 pyenv which python) -m pip install flake8
+$(PYENV_VERSION=3.5.5 pyenv which python) -m pip install awscli
+$(PYENV_VERSION=3.5.5 pyenv which python) -m pip install yamllint
 
 terminal-notifier -message "Done setting up dev machine"
