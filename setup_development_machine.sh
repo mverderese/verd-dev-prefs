@@ -101,8 +101,6 @@ ln -s "$(PYENV_VERSION=2.7.14 pyenv which python2)" /usr/local/bin/python2
 pyenv install 3.5.5 --skip-existing
 pyenv global 3.5.5
 
-terminal-notifier -message "Root password needed"
-
 # Install python3 packages
 $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install --upgrade pip
 $(PYENV_VERSION=3.5.5 pyenv which python) -m pip install virtualenv
