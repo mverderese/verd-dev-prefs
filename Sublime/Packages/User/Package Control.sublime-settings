@@ -12,12 +12,14 @@
 		"Git",
 		"HTML-CSS-JS Prettify",
 		"Indent XML",
+		"INI",
 		"Javascript Beautify",
 		"Jedi - Python autocompletion",
 		"Jinja2",
 		"JsFormat",
 		"LiveReload",
 		"MarkdownLivePreview",
+		"MarkdownPreview",
 		"MarkdownTOC",
 		"nginx",
 		"Package Control",
@@ -37,7 +39,6 @@
 		"SublimeLinter-flake8",
 		"SummitLinter",
 		"TypeScript",
-		"xml2json",
-		"MarkdownPreview"
+		"xml2json"
 	]
 }
