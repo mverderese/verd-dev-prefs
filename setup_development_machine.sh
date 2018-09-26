@@ -29,6 +29,9 @@ if [ ! -e "$file" ]; then
     ssh-keygen -t rsa -b 4096
 fi
 
+mkdir -p /usr/local/bin/
+sudo chown mike:admin /usr/local/bin
+
 mkdir -p ~/.bin/
 cp "$SCRIPT_DIR/ssh/ec2ssh.sh" ~/.bin/ec2ssh.sh
 chmod u+x ~/.bin/ec2ssh.sh
@@ -40,6 +43,9 @@ ln -s "$SCRIPT_DIR/iTerm/.zshrc" ./.zshrc
 
 rm -f ./.bash_profile
 ln -s "$SCRIPT_DIR/iTerm/.bash_profile" ./.bash_profile
+
+rm -f ./.gitconfig
+ln -s "$SCRIPT_DIR/iTerm/.gitconfig" ./.gitconfig
 
 rm -f ./.oh-my-zsh/themes/mverderese.zsh-theme
 ln -s "$SCRIPT_DIR/iTerm/mverderese.zsh-theme" ./.oh-my-zsh/themes/mverderese.zsh-theme

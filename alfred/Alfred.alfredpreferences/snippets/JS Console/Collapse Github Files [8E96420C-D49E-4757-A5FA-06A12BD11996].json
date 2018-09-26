@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "$$('div.file-header > div.file-actions > button').map(function(x){x.click()});",
+    "uid" : "8E96420C-D49E-4757-A5FA-06A12BD11996",
+    "name" : "Collapse Github Files",
+    "keyword" : ""
+  }
+}

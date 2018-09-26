@@ -1,0 +1,48 @@
+[core]
+	editor = subl -n -w
+    excludesfile = /Users/mike/.gitignore_global
+[user]
+    name = Mike Verderese
+    email = verderese@renew.com
+
+
+# Usage: git total [OPTION...]
+#
+# Options:
+#
+#   In theory, the command accepts all command line options supported by
+#   the "git log" command. In reality, however, only few commit-limiting
+#   options are useful. This includes:
+#
+#   --author=PATTERN, --committer=PATTERN
+#       Displays the number of lines changed by a certain author.
+#
+#   --since=DATE, --after=DATE
+#       Counts only commits that are more recent than a specific date.
+#
+#   --until=DATE, --before=DATE
+#       Counts only commits that are older than a specific date.
+#
+#   -n NUMBER, --max-count=NUMBER
+#       Counts only a certain number of commits.
+#
+# Examples:
+#
+#   git total
+#       Displays the total number of changes.
+#
+#   git total --author=john@example.com
+#       Displays the total number of changes by john@example.com.
+
+[alias]
+    total = "!f() { git log $@ --numstat | perl -ne '$i+=$1 and $d+=$2 if /^(\\d+)\\s+(\\d+)/; END { print \"$i insertion(s), $d deletion(s)\n\"}'; }; f"
+[commit]
+    template = /Users/mike/.stCommitMsg
+[pager]
+    branch = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

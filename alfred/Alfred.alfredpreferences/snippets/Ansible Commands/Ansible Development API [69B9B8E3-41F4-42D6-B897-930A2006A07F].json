@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "ansible-playbook development.yml --limit 'tag_class_full-stack:&tag_environment_development' --tags api_role; termnot 'Done deploying to development!'",
+    "uid" : "69B9B8E3-41F4-42D6-B897-930A2006A07F",
+    "name" : "Ansible Development API",
+    "keyword" : ""
+  }
+}

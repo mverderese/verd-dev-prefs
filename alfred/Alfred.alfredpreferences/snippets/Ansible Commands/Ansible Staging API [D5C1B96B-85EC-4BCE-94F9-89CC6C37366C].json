@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "ansible-playbook staging.yml --limit 'tag_class_api:&tag_environment_staging' --tags api_role; termnot 'Done deploying to staging!'",
+    "uid" : "D5C1B96B-85EC-4BCE-94F9-89CC6C37366C",
+    "name" : "Ansible Staging API",
+    "keyword" : ""
+  }
+}
