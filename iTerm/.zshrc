@@ -126,6 +126,11 @@ alias fancytree='tree -lhgupC'
 # Depends on #https://github.com/sindresorhus/trash-cli
 alias rm=trash
 
+# https://www.michaelehead.com/2016/02/06/installing-gems-without-sudo.html
+# Fix ruby sudo install
+export GEM_HOME=/Users/mike/.gem
+export PATH="$GEM_HOME/bin:$PATH"
+
 alias ec2ssh='~/.bin/ec2ssh.sh'
 alias get-secret='~/.bin/get-secret.sh'
 
