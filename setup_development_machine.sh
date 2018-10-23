@@ -99,9 +99,14 @@ brew uninstall python2
 # Upgrade brews
 brew upgrade
 
-# Install python3
+# Install python
 xcode-select --install
 brew install pyenv
+
+# https://github.com/pyenv/pyenv/wiki/Common-build-problems
+brew install readline xz
+sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+
 pyenv install 2.7.14 --skip-existing
 ln -s "$(PYENV_VERSION=2.7.14 pyenv which python2)" /usr/local/bin/python2
 pyenv install 3.5.5 --skip-existing
