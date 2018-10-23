@@ -13,13 +13,37 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="mverderese"
 
+# https://www.reddit.com/r/zsh/comments/46lf65/ohmyzsh_how_can_i_see_how_much_time_the_last/d0ti1sv/
+function preexec() {
+    timer=${timer:-$SECONDS}
+}
+
+function precmd() {
+    if [ $timer ]; then
+        timer_show=$(($SECONDS - $timer))
+        export RPROMPT="${timer_show}s"
+        unset timer
+    fi
+}
+
+# https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_aws
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sublime osx docker virtualenv tig ssh-agent)
+plugins=(
+    git
+    sublime
+    osx
+    docker
+    virtualenv
+    ssh-agent
+    zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 

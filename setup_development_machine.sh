@@ -23,6 +23,9 @@ if [ ! -e "$file" ]; then
     exit
 fi
 
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+brew install zsh-syntax-highlighting
+
 # Create ssh key
 file=~/.ssh/id_rsa
 if [ ! -e "$file" ]; then
