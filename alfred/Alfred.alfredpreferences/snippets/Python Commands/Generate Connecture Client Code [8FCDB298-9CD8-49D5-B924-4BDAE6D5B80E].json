@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "python manage.py swagger generate_client_code -s swagger\/connecture\/swagger.yaml -m -f",
+    "uid" : "8FCDB298-9CD8-49D5-B924-4BDAE6D5B80E",
+    "name" : "Generate Connecture Client Code",
+    "keyword" : ""
+  }
+}

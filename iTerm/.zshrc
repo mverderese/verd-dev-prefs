@@ -43,6 +43,7 @@ plugins=(
     virtualenv
     ssh-agent
     zsh-autosuggestions
+    pipenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -74,22 +75,16 @@ docker-destroy-all() {
 denter() { docker exec -it $1 /bin/bash; }
 dlog() { docker logs $1 --tail 150 -f }
 
-docker-rebuild-image() {
+docker-rebuild-renew-image() {
 
     if [[ -z "$1" ]]; then
-        echo 'Must provide name of service (no number. use underscores). For example: "renew_api"'
+        echo 'Must provide name of service to search (no number. use underscores). For example: "api"'
         return 1
     fi
 
-    docker_container=$1
-
     dev stop local-dev
-    docker rm "${docker_container}_1"
 
-    docker_image="${docker_container//_/-}"
-
-    docker rmi "${docker_image}"
-    docker images | grep "${docker_image}" | awk '{print $3}' | xargs docker rmi
+    docker ps -a | grep $1 | awk '{print $1}'| xargs docker rm -f
 
     dev build local-dev
     dev start local-dev
@@ -191,3 +186,19 @@ teardown-virtualenv() {
 }
 
 alias activate-virtualenv='. ./.venv/bin/activate'
+
+# https://stackoverflow.com/a/33844061/2565551
+capture() {
+
+    sudo dtrace -p "$1" -qn '
+        syscall::write*:entry
+        /pid == $target && arg0 == 1/ {
+            printf("%s", copyinstr(arg1, arg2));
+        }
+    '
+}
+
+tcp-process() {
+    sudo lsof -i tcp:$1 | grep LISTEN
+}
+

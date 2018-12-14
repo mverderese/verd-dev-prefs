@@ -32,13 +32,16 @@
 		"Sass",
 		"SFTP",
 		"SideBarEnhancements",
+		"SQLTools",
 		"SublimeLinter",
 		"SublimeLinter-contrib-ansible-lint",
+		"SublimeLinter-contrib-yaml-lint",
 		"SublimeLinter-contrib-yamllint",
 		"SublimeLinter-eslint",
 		"SublimeLinter-flake8",
 		"SummitLinter",
 		"TypeScript",
+		"uroboroSQL Formatter",
 		"xml2json"
 	]
 }

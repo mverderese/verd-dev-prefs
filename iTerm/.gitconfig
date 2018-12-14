@@ -2,8 +2,8 @@
 	editor = subl -n -w
     excludesfile = /Users/mike/.gitignore_global
 [user]
-    name = Mike Verderese
-    email = verderese@renew.com
+	name = Mike Verderese
+	email = verderese@renew.com
 
 
 # Usage: git total [OPTION...]
@@ -44,3 +44,8 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
