@@ -112,18 +112,16 @@ sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_heade
 pyenv install 2.7.14 --skip-existing
 rm -rf /usr/local/bin/python2
 ln -s "$(PYENV_VERSION=2.7.14 pyenv which python2)" /usr/local/bin/python2
-pyenv install 3.6.6 --skip-existing
-pyenv global 3.6.6
+pyenv install 3.7.1 --skip-existing
+pyenv global 3.7.1
 rm -rf /usr/local/bin/python3
-rm -rf /usr/local/bin/python3.6
-ln -s "$(PYENV_VERSION=3.6.6 pyenv which python3)" /usr/local/bin/python3
-ln -s "$(PYENV_VERSION=3.6.6 pyenv which python3)" /usr/local/bin/python3.6
+ln -s "$(PYENV_VERSION=3.7.1 pyenv which python3)" /usr/local/bin/python3
 
 # Install python3 packages
-$(PYENV_VERSION=3.6.6 pyenv which python) -m pip install --upgrade pip
-$(PYENV_VERSION=3.6.6 pyenv which python) -m pip install virtualenv
-$(PYENV_VERSION=3.6.6 pyenv which python) -m pip install flake8
-$(PYENV_VERSION=3.6.6 pyenv which python) -m pip install awscli
-$(PYENV_VERSION=3.6.6 pyenv which python) -m pip install yamllint
+$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install --upgrade pip
+$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install virtualenv
+$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install flake8
+$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install awscli
+$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install yamllint
 
 terminal-notifier -message "Done setting up dev machine"
