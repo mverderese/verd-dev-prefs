@@ -81,6 +81,10 @@ brew install speedtest_cli
 # Upgrade npm
 npm install --global npm
 
+# Install alfred mirror switch
+mkdir ~/Development/verd-dev-prefs/alfred/Alfred.alfredpreferences/workflows
+npm install --global alfred-mirror-displays
+
 # Install npm-ls-scripts
 npm install --global npm-ls-scripts
 
