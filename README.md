@@ -38,9 +38,9 @@ You'll be prompted for your root password a few times
     7. `activate-virtualenv` - activates the virtualenv in current directory
     8. `get-secret <env> <filename>` gets a secret from renew secrets bucket (requires setup
         of `awscli` with a user that has access to this bucket)
-    9. `gpasf <branch_name (default reviewed)>` - Run this command the directory above a bunch of
+    9. `gpasf <branch_name (default master)>` - Run this command the directory above a bunch of
     repositries and it will checkout the given branch, pull, and update submodules
-    10. `ghpr <branch_name (default reviewed)>` - Create a github pull request against the
+    10. `ghpr <branch_name (default master)>` - Create a github pull request against the
     specified branch. Will open configured text editor to enter pull request message
     11. `fancytree` - Alias for `tree` with useful flags for permissions, colors, etc.
 

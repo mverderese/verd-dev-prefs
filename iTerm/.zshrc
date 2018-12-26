@@ -100,7 +100,7 @@ eval "$(hub alias -s)"
 ghpr() {
     current_branch="$(git branch | sed -n 's/^\* //p')"
     git push -u origin ${current_branch} &&
-    URL=$(git pull-request -b "${1:-reviewed}") &&
+    URL=$(git pull-request -b "${1:-master}") &&
     sleep 1 &&
     open $URL
 }
@@ -108,7 +108,6 @@ ghpr() {
 # Alias for deleting remote branches: Usage `drm feature/test-feature`
 alias gbdr='git push origin --delete "$1"'
 
-alias gcr='git checkout reviewed'
 alias gbav='git branch --all -vv'
 alias gbv='git branch -vv'
 alias gdc='git diff --cached'
@@ -118,7 +117,7 @@ alias gl='git pull --rebase'
 gpasf () {
     for d in *; do
       if [ -d "$d/.git/" ]; then         # or:  if test -d "$d"; then
-        ( cd "$d" && git checkout "${1:-reviewed}" && git pull && git submodule update )
+        ( cd "$d" && git clean -f && git prune && git fetch --all --prune && git checkout "${1:-master}" && git pull && git submodule update )
       fi
     done
 }
@@ -128,7 +127,7 @@ gloge () {
     echo "Current branch: ${current_branch}"
     ticket_code=$(echo "${current_branch}" | sed 's/\(REN-[0-9]*\).*/\1/')
     echo "Ticket code: ${ticket_code}\n"
-    output=$(git log ${1:-reviewed}..${current_branch} --pretty=format:'%s' | sed "s/${ticket_code} /- /g")
+    output=$(git log ${1:-master}..${current_branch} --pretty=format:'%s' | sed "s/${ticket_code} /- /g")
     echo "${output}" | /usr/local/opt/coreutils/libexec/gnubin/tac
     echo "${output}" | /usr/local/opt/coreutils/libexec/gnubin/tac | pbcopy
     echo "\nLog copied to clipboard!"
