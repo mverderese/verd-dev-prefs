@@ -85,7 +85,7 @@
 		".yarn_cache",
 		"compiled"
 	],
-	"font_size": 14,
+	"font_size": 17,
 	"ignored_packages":
 	[
 		"Color Highlighter",
@@ -101,7 +101,7 @@
 		100
 	],
 	"tab_size": 4,
-	"theme": "Adaptive.sublime-theme",
+	"theme": "Adaptive_High_Res.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true
