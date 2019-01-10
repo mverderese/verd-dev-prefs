@@ -14,8 +14,8 @@ fi
 cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
 rm -rf ./User
 ln -s "$SCRIPT_DIR/Sublime/Packages/User" ./User
-rm -rf ./Theme
-ln -s "$SCRIPT_DIR/Sublime/Packages/Theme" ./Theme
+rm -rf ./Themes
+ln -s "$SCRIPT_DIR/Sublime/Packages/Themes" ./Themes
 
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 git config --global core.editor "subl -n -w"
