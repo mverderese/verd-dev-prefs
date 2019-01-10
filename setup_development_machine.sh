@@ -2,6 +2,9 @@
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+cd "$SCRIPT_DIR/Fonts/consolas/"
+find . | grep -i ".*\.ttf" | xargs -I {} sudo cp {} /Library/Fonts
+
 file=/usr/local/bin/brew
 if [ ! -e "$file" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
