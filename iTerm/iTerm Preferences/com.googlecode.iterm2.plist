@@ -30,6 +30,7 @@
 		<string>12</string>
 		<string>13</string>
 		<string>14</string>
+		<string>16</string>
 		<string>17</string>
 		<string>18</string>
 		<string>24</string>
@@ -40,7 +41,7 @@
 		<string>96</string>
 		<string>144</string>
 		<string>288</string>
-		<string>16</string>
+		<string>20</string>
 	</array>
 	<key>NSFontPanelSizeSliderParams</key>
 	<string>1 0 100</string>
@@ -85,13 +86,13 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>322 567 445 77 0 0 1680 1027 </string>
+	<string>321 567 445 77 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>2856 -645 560 622 1736 -1050 1680 1027 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>1252 465 606 469 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-1738 2182 796 486 -2886 1050 3840 2137 </string>
+	<string>-1738 2308 796 486 -2886 1050 3840 2137 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1680 1027 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -758,7 +759,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Consolas 17</string>
+			<string>Consolas 20</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1541,7 +1542,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Consolas 12</string>
+			<string>Consolas 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2315,7 +2316,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Consolas 12</string>
+			<string>Consolas 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
