@@ -83,6 +83,11 @@ brew install graphviz
 # Install nnn
 brew install nnn
 
+# Install drone
+brew tap drone/drone
+brew install drone
+open https://ci.renew-internals.com/account/token
+
 # Install speedtest_cli
 brew install speedtest_cli
 
