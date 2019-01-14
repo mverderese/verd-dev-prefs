@@ -85,8 +85,8 @@
 		".yarn_cache",
 		"compiled"
 	],
-	"font_size": 20,
 	"font_face": "Consolas",
+	"font_size": 20,
 	"ignored_packages":
 	[
 		"Color Highlighter",

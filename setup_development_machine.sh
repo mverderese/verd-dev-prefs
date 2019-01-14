@@ -80,6 +80,9 @@ NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 8.9.3
 brew install qcachegrind
 brew install graphviz
 
+# Install nnn
+brew install nnn
+
 # Install speedtest_cli
 brew install speedtest_cli
 
