@@ -4,3 +4,5 @@ Sublime/Packages/User/Package Control.merged-ca-bundle
 Sublime/Packages/User/oscrypto-ca-bundle.crt
 
 .DS_Store
+
+/iTerm/.local_config.sh

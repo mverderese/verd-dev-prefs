@@ -29,6 +29,9 @@ function precmd() {
 # https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Get local env variables
+source "$HOME/.local_config.sh"
+
 zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa_aws
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -61,6 +64,10 @@ utime () {
     else
         date +%s;
     fi
+}
+
+docker-stop-all() {
+    docker stop $(docker ps -aq)
 }
 
 docker-destroy-all() {
@@ -201,3 +208,6 @@ tcp-process() {
     sudo lsof -i tcp:$1 | grep LISTEN
 }
 
+run-local-dev() {
+    dev run local-dev > /tmp/docker_output.log &
+}

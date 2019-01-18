@@ -46,6 +46,10 @@ chmod u+x ~/.bin/ec2ssh.sh
 
 # Create symbolic links for oh-my-zsh
 cd ~/
+
+rm -f ./.local_config.sh
+ln -s "$SCRIPT_DIR/iTerm/.local_config.sh" ./.local_config.sh
+
 rm -f ./.zshrc
 ln -s "$SCRIPT_DIR/iTerm/.zshrc" ./.zshrc
 

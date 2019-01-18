@@ -1,0 +1,2 @@
+export DRONE_SERVER=https://ci.renew-internals.com/
+export DRONE_TOKEN=123_your_token
