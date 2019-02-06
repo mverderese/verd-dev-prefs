@@ -89,7 +89,7 @@ brew install nnn
 
 # Install drone
 brew tap drone/drone
-brew install drone
+brew install drone@0.8
 open https://ci.renew-internals.com/account/token
 
 # Install speedtest_cli
@@ -116,6 +116,7 @@ brew install tree
 brew install tig
 brew install postgresql
 brew install yarn
+brew install htop
 
 # Upgrade brews
 brew upgrade

@@ -211,3 +211,7 @@ tcp-process() {
 run-local-dev() {
     dev run local-dev > /tmp/docker_output.log &
 }
+
+alias verd-dev='cd ~/Development/verd-dev-prefs/'
+alias api='cd ~/Development/renew/renew-api/'
+alias slug='cd ~/Development/renew/renew-data-slug/'
