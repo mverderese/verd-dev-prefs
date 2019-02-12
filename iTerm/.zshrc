@@ -215,3 +215,6 @@ run-local-dev() {
 alias verd-dev='cd ~/Development/verd-dev-prefs/'
 alias api='cd ~/Development/renew/renew-api/'
 alias slug='cd ~/Development/renew/renew-data-slug/'
+alias servers='cd ~/Development/renew/renew-servers/'
+
+alias pag='ps aux | grep -i $1'
