@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "ansible-playbook internals.yml --limit 'tag_class_data-slug:&tag_environment_internals' --tags data_slug_role; termnot 'Done deploying to data slug!'",
+    "uid" : "211ACDAF-6406-47CB-B9E4-703201153A89",
+    "name" : "Ansible Data Slug",
+    "keyword" : ""
+  }
+}
