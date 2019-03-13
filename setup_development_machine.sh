@@ -53,6 +53,9 @@ ln -s "$SCRIPT_DIR/iTerm/.local_config.sh" ./.local_config.sh
 rm -f ./.zshrc
 ln -s "$SCRIPT_DIR/iTerm/.zshrc" ./.zshrc
 
+rm -f ./.tmux.conf
+ln -s "$SCRIPT_DIR/iTerm/.tmux.conf" ./.tmux.conf
+
 rm -f ./.bash_profile
 ln -s "$SCRIPT_DIR/iTerm/.bash_profile" ./.bash_profile
 
@@ -113,6 +116,7 @@ brew install terminal-notifier
 
 # Install useful tools
 brew install tree
+brew install tmux
 brew install tig
 brew install postgresql
 brew install yarn
