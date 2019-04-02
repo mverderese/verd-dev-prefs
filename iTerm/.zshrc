@@ -120,6 +120,7 @@ alias gbv='git branch -vv'
 alias gdc='git diff --cached'
 alias tia='tig --all'
 alias gl='git pull --rebase'
+alias gcd='git checkout development'
 
 gpasf () {
     for d in *; do
@@ -164,7 +165,7 @@ setup-virtualenv() {
     # Create virtualenv
     file=./.venv/bin/activate
     if [ ! -e "$file" ]; then
-        $(PYENV_VERSION=3.5.5 pyenv which python) -m virtualenv ./.venv --python="${1:-python3}"
+        $(PYENV_VERSION=3.7.1 pyenv which python) -m virtualenv ./.venv --python="${1:-python3}"
     else
         echo "virtualenv already created"
     fi
@@ -177,7 +178,7 @@ setup-virtualenv() {
     if [ ! -e "$file" ]; then
         echo "No requirements.txt found"
     else
-        pip3 install -r "$file" --process-dependency-links
+        pip3 install -r "$file"
     fi
 }
 
