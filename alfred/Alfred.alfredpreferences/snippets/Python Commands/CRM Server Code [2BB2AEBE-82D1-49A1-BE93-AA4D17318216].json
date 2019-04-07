@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "python manage.py openapi generate_server_code -f --output-dir codegen\/crm-python-flask -s specs\/crm\/openapi.yaml && cp .\/codegen\/crm-python-flask\/openapi_server\/models\/* .\/src\/models\/openapi\/generated\/crm && rm .\/src\/models\/openapi\/generated\/crm\/base_model_.py && python manage.py openapi create_subclasses",
+    "uid" : "2BB2AEBE-82D1-49A1-BE93-AA4D17318216",
+    "name" : "CRM Server Code",
+    "keyword" : ""
+  }
+}
