@@ -5,7 +5,7 @@ export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/mike/.oh-my-zsh
+export ZSH=${HOME}/.oh-my-zsh
 export VIRTUAL_ENV_DISABLE_PROMPT=
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -154,7 +154,7 @@ alias rm=trash
 
 # https://www.michaelehead.com/2016/02/06/installing-gems-without-sudo.html
 # Fix ruby sudo install
-export GEM_HOME=/Users/mike/.gem
+export GEM_HOME=${HOME}/.gem
 export PATH="$GEM_HOME/bin:$PATH"
 
 alias ec2ssh='~/.bin/ec2ssh.sh'

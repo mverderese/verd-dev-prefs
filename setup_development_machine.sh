@@ -38,7 +38,7 @@ if [ ! -e "$file" ]; then
 fi
 
 mkdir -p /usr/local/bin/
-sudo chown mike:admin /usr/local/bin
+sudo chown ${USER}:admin /usr/local/bin
 
 mkdir -p ~/.bin/
 cp "$SCRIPT_DIR/ssh/ec2ssh.sh" ~/.bin/ec2ssh.sh
