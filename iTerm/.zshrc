@@ -1,3 +1,4 @@
+#@IgnoreInspection BashAddShebang
 # If you come from bash you might have to change your $PATH.
 # Recommended by Homebrew
 
@@ -54,7 +55,6 @@ source $ZSH/oh-my-zsh.sh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-export PYTHON_EXEC="$(PYENV_VERSION=2.7.14 pyenv which python2)"
 
 termnot() { terminal-notifier -sound Ping -message "$1" -execute 'open /Applications/iTerm.app'; }
 
@@ -159,40 +159,6 @@ export PATH="$GEM_HOME/bin:$PATH"
 
 alias ec2ssh='~/.bin/ec2ssh.sh'
 alias get-secret='~/.bin/get-secret.sh'
-
-setup-virtualenv() {
-
-    # Create virtualenv
-    file=./.venv/bin/activate
-    if [ ! -e "$file" ]; then
-        $(PYENV_VERSION=3.7.1 pyenv which python) -m virtualenv ./.venv --python="${1:-python3}"
-    else
-        echo "virtualenv already created"
-    fi
-
-    # Activate virtualenv
-    . ./.venv/bin/activate
-
-    # Install requirements
-    file=./requirements.txt
-    if [ ! -e "$file" ]; then
-        echo "No requirements.txt found"
-    else
-        pip3 install -r "$file"
-    fi
-}
-
-teardown-virtualenv() {
-    file=./.venv/bin/activate
-    if [ ! -e "$file" ]; then
-        echo "No virtualenv found at $file"
-    else
-        deactivate
-        rm -rf ./.venv/
-    fi
-}
-
-alias activate-virtualenv='. ./.venv/bin/activate'
 
 # https://stackoverflow.com/a/33844061/2565551
 capture() {
