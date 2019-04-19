@@ -47,7 +47,6 @@ plugins=(
     virtualenv
     ssh-agent
     zsh-autosuggestions
-    pipenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -55,6 +54,8 @@ source $ZSH/oh-my-zsh.sh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+export EDITOR="/usr/local/bin/subl"
 
 termnot() { terminal-notifier -sound Ping -message "$1" -execute 'open /Applications/iTerm.app'; }
 
