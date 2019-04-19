@@ -92,15 +92,15 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>93 362 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>195 190 770 429 0 0 1440 877 </string>
+	<string>195 190 796 486 0 0 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 473 592 584 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>720 0 717 877 0 0 1440 877 </string>
+	<string>1280 0 640 1057 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 632 570 425 0 0 1920 1057 </string>
+	<string>0 465 570 402 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 0 1440 877 0 0 1440 877 </string>
+	<string>0 465 570 402 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
