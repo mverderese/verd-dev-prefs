@@ -7,11 +7,13 @@
 		<key>key</key>
 		<integer>9</integer>
 		<key>mod</key>
-		<integer>1179648</integer>
+		<integer>1703936</integer>
 		<key>string</key>
 		<string>V</string>
 	</dict>
 	<key>snippetsAtTop</key>
 	<false/>
+	<key>viewerKeyword</key>
+	<string>clip</string>
 </dict>
 </plist>

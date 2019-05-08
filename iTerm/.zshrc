@@ -5,6 +5,8 @@
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 export VIRTUAL_ENV_DISABLE_PROMPT=
@@ -122,6 +124,7 @@ alias gdc='git diff --cached'
 alias tia='tig --all'
 alias gl='git pull --rebase'
 alias gcd='git checkout development'
+alias gcwip='git add --all && git commit -m "WIP"'
 
 gpasf () {
     for d in *; do
