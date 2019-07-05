@@ -139,7 +139,7 @@ sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_heade
 pyenv install 2.7.15 --skip-existing
 #rm -rf /usr/local/bin/python2
 #ln -s "$(PYENV_VERSION=2.7.14 pyenv which python2)" /usr/local/bin/python2
-pyenv install 3.7.1 --skip-existing
+pyenv install 3.7.3 --skip-existing
 
 /usr/local/bin/python3 -m pip install black
 #pyenv global 3.7.1
