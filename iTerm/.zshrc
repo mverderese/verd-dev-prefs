@@ -119,6 +119,14 @@ gpasf () {
     done
 }
 
+gpasfforce () {
+    for d in *; do
+      if [ -d "$d/.git/" ]; then         # or:  if test -d "$d"; then
+        ( cd "$d" && git clean -f && git add --all && git reset --hard && git prune && git fetch --all --prune && git checkout "${1:-master}" && git pull && git submodule update )
+      fi
+    done
+}
+
 gloge () {
     current_branch="$(git branch | sed -n 's/^\* //p')"
     echo "Current branch: ${current_branch}"
@@ -155,3 +163,8 @@ tcp-process() {
 }
 
 alias pag='ps aux | grep -i $1'
+
+# Go stuff
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"

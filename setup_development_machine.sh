@@ -149,4 +149,16 @@ pyenv install 3.7.4 --skip-existing
 #$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install awscli
 #$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install yamllint
 
+# Go development
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+test -d "${GOPATH}" || mkdir "${GOPATH}"
+test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
+brew install go
+go get golang.org/x/tools/cmd/godoc
+go get golang.org/x/lint/golint
+
+brew install dep
+
 terminal-notifier -message "Done setting up dev machine"
