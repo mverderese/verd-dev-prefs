@@ -17,26 +17,26 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 ZSH_THEME="mverderese"
 
 # https://www.reddit.com/r/zsh/comments/46lf65/ohmyzsh_how_can_i_see_how_much_time_the_last/d0ti1sv/
-function preexec() {
-    timer=${timer:-$SECONDS}
-}
+# function preexec() {
+#     timer=${timer:-$SECONDS}
+# }
 
-function precmd() {
-    if [ $timer ]; then
-        timer_show=$(($SECONDS - $timer))
-        export RPROMPT="${timer_show}s"
-        unset timer
-    fi
-}
+# Get local env variables
+source "$HOME/.local_config.sh"
+
+# function precmd() {
+#     if [ $timer ]; then
+#         timer_show=$(($SECONDS - $timer))
+#         export RPROMPT="${timer_show}s"
+#         unset timer
+#     fi
+# }
 
 autoload bashcompinit
 bashcompinit
 
 # https://medium.com/@Clovis_app/configuration-of-a-beautiful-efficient-terminal-and-prompt-on-osx-in-7-minutes-827c29391961
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Get local env variables
-source "$HOME/.local_config.sh"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -53,6 +53,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# AWS Assume Role
+source $(which assume-role)
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -86,6 +89,14 @@ docker-destroy-all() {
 denter() { docker exec -it $1 /bin/bash; }
 dlog() { docker logs $1 --tail 150 -f }
 
+docker-compose-rebuild() {
+    docker-compose down &&
+    docker-compose rm -f -s &&
+    docker-compose pull &&
+    docker-compose build --no-cache &&
+    docker-compose --compatibility up --force-recreate
+}
+
 # # https://github.com/renewdotcom/renew-dev-tools/pull/1/
 # export AWS_PROFILE=mfa_session
 
@@ -96,6 +107,14 @@ ghpr() {
     URL=$(hub pull-request -b "${1:-master}") &&
     sleep 1 &&
     open $URL
+}
+
+unset_vars_search() {
+  while read var; do unset $var; done < <(env | grep -i $1 | sed 's/=.*//g')
+}
+
+unset_aws() {
+  unset_vars_search aws
 }
 
 # Alias for deleting remote branches: Usage `drm feature/test-feature`
@@ -144,10 +163,6 @@ alias c='clear'
 alias sudo='sudo '
 
 alias fancytree='tree -lhgupC'
-
-# Instead of deleting files with rm, send them to the trash.
-# Depends on #https://github.com/sindresorhus/trash-cli
-alias rm=trash
 
 alias verd-dev="cd ~/Development/verd-dev-prefs"
 
