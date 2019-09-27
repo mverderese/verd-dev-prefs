@@ -117,6 +117,10 @@ unset_aws() {
   unset_vars_search aws
 }
 
+source_dotenv() {
+  export $(grep -v '^#' .env | xargs -0)
+}
+
 # Alias for deleting remote branches: Usage `drm feature/test-feature`
 alias gbdr='git push origin --delete "$1"'
 
@@ -126,7 +130,6 @@ alias gdc='git diff --cached'
 alias tia='tig --all'
 alias gl='git pull --rebase'
 alias gcd='git checkout development'
-alias gcwip='git add --all && git commit -m "WIP"'
 alias gdst='git diff --stat'
 alias gdsst='git diff --shortstat'
 
