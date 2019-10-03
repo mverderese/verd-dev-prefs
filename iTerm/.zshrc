@@ -16,22 +16,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="mverderese"
 
-# https://www.reddit.com/r/zsh/comments/46lf65/ohmyzsh_how_can_i_see_how_much_time_the_last/d0ti1sv/
-# function preexec() {
-#     timer=${timer:-$SECONDS}
-# }
-
-# Get local env variables
-source "$HOME/.local_config.sh"
-
-# function precmd() {
-#     if [ $timer ]; then
-#         timer_show=$(($SECONDS - $timer))
-#         export RPROMPT="${timer_show}s"
-#         unset timer
-#     fi
-# }
-
 autoload bashcompinit
 bashcompinit
 

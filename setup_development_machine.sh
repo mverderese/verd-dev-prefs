@@ -113,6 +113,8 @@ brew install tig
 brew install postgresql
 brew install yarn
 brew install htop
+brew tap coinbase/assume-role
+brew install assume-role
 
 # Upgrade brews
 brew upgrade
@@ -129,22 +131,11 @@ brew install readline xz
 sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 
 pyenv install 2.7.16 --skip-existing
-# rm -rf /usr/local/bin/python2
-# ln -s "$(PYENV_VERSION=2.7.16 pyenv which python2)" /usr/local/bin/python2
-
 pyenv install 3.7.4 --skip-existing
-# pyenv global 3.7.4
-# rm -rf /usr/local/bin/python3
-# ln -s "$(PYENV_VERSION=3.7.4 pyenv which python3)" /usr/local/bin/python3
-
-/usr/local/bin/python3 -m pip install black
 
 # Install python3 packages
-#$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install --upgrade pip
-#$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install virtualenv
-#$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install flake8
-#$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install awscli
-#$(PYENV_VERSION=3.7.1 pyenv which python) -m pip install yamllint
+/usr/local/bin/python3 -m pip install black
+/usr/local/bin/python3 -m pip install flake8
 
 # Go development
 export GOPATH="${HOME}/.go"
