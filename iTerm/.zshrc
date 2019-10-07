@@ -120,7 +120,7 @@ alias gdsst='git diff --shortstat'
 gpasf () {
     for d in *; do
       if [ -d "$d/.git/" ]; then         # or:  if test -d "$d"; then
-        ( cd "$d" && git clean -f && git prune && git fetch --all --prune && git checkout "${1:-master}" && git pull && git submodule update )
+        ( cd "$d" && git clean -f && git prune && git fetch --all --prune && git checkout && git pull && git submodule update )
       fi
     done
 }
@@ -128,7 +128,7 @@ gpasf () {
 gpasfforce () {
     for d in *; do
       if [ -d "$d/.git/" ]; then         # or:  if test -d "$d"; then
-        ( cd "$d" && git clean -f && git add --all && git reset --hard && git prune && git fetch --all --prune && git checkout "${1:-master}" && git pull && git submodule update )
+        ( cd "$d" && git clean -f && git add --all && git reset --hard && git prune && git fetch --all --prune && git checkout && git pull && git submodule update )
       fi
     done
 }
