@@ -40,10 +40,6 @@ fi
 mkdir -p /usr/local/bin/
 sudo chown ${USER}:admin /usr/local/bin
 
-mkdir -p ~/.bin/
-cp "$SCRIPT_DIR/ssh/ec2ssh.sh" ~/.bin/ec2ssh.sh
-chmod u+x ~/.bin/ec2ssh.sh
-
 # Create symbolic links for oh-my-zsh
 cd ~/
 
@@ -75,13 +71,15 @@ brew install hub
 # Install tac
 # https://unix.stackexchange.com/a/114042/162182
 brew install coreutils
-ln -s /usr/local/bin/gtac /usr/local/bin/ta
 
 # Install node
 brew install nvm
 mkdir -p ~/.nvm
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 10.16.0
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 10.16.0
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 12.13.0
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 12.13.0
+
+# Upgrade npm
+npm install --global npm
 
 # Install cachegrind
 brew install qcachegrind
@@ -92,16 +90,6 @@ brew install nnn
 
 # Install speedtest_cli
 brew install speedtest_cli
-
-# Upgrade npm
-npm install --global npm
-
-# Install alfred mirror switch
-mkdir ~/Development/verd-dev-prefs/alfred/Alfred.alfredpreferences/workflows
-npm install --global alfred-mirror-displays
-
-# Install npm-ls-scripts
-npm install --global npm-ls-scripts
 
 # Install terminal notifier
 brew install terminal-notifier
@@ -126,11 +114,6 @@ brew install pipenv
 rm -rf ~/.oh-my-zsh/custom/pipenv_completion.zsh
 pipenv --completion >> ~/.oh-my-zsh/custom/pipenv_completion.zsh
 
-# https://github.com/pyenv/pyenv/wiki/Common-build-problems
-brew install readline xz
-sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
-
-pyenv install 2.7.16 --skip-existing
 pyenv install 3.7.4 --skip-existing
 
 # Install python3 packages

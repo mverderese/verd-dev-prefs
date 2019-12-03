@@ -68,6 +68,8 @@ docker-destroy-all() {
      docker rm $(docker ps -a -q)
      # Delete all images
      docker rmi $(docker images -q) -f
+     # Delete all networks
+     docker network rm $(docker network ls -q)
 }
 
 denter() { docker exec -it $1 /bin/bash; }
