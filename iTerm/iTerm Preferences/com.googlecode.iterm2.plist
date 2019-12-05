@@ -74,9 +74,9 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>2189 109 796 486 1920 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1440 877 0 0 1920 1057 </string>
+	<string>1280 0 640 1057 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>3200 450 570 417 1920 0 1920 1057 </string>
+	<string>1280 450 570 417 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -868,14 +868,14 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.6</string>
-		<string>3.3.4</string>
+		<string>3.3.2</string>
 		<string>3.3.1</string>
 		<string>3.3.3</string>
 		<string>3.3.5</string>
 		<string>3.3.7</string>
 		<string>3.2.9</string>
 		<string>3.3.0</string>
-		<string>3.3.2</string>
+		<string>3.3.4</string>
 	</array>
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
@@ -896,7 +896,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>9555C711-99C8-416A-BCAF-A77C3A8CC5EE</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>84</integer>
+	<integer>85</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1636,6 +1636,8 @@
 	</array>
 	<key>NoSyncSearchHistory2</key>
 	<array>
+		<string>graph</string>
+		<string>altai</string>
 		<string>instance</string>
 		<string>aws instanc</string>
 		<string>command</string>
@@ -1644,8 +1646,6 @@
 		<string>proto</string>
 		<string>kombu</string>
 		<string>aver-app</string>
-		<string>ssh_url</string>
-		<string>output</string>
 	</array>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>584505073.90392697</real>
@@ -1697,13 +1697,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-12-03T04:23:26Z</date>
+	<date>2019-12-04T19:34:38Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>TabStyleWithAutomaticOption</key>

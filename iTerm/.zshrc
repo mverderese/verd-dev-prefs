@@ -1,15 +1,40 @@
 #@IgnoreInspection BashAddShebang
-# If you come from bash you might have to change your $PATH.
-# Recommended by Homebrew
+
+###
+#
+# Setup Environment Variables
+#
+###
 
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
-export HISTTIMEFORMAT="%d/%m/%y %T "
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 export VIRTUAL_ENV_DISABLE_PROMPT=
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export EDITOR="/usr/local/bin/subl"
+
+# Go stuff
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# https://www.michaelehead.com/2016/02/06/installing-gems-without-sudo.html
+# Fix ruby sudo install
+export GEM_HOME=${HOME}/.gem
+export PATH="$GEM_HOME/bin:$PATH"
+
+###
+#
+# Oh My Zsh setup
+#
+###
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -28,9 +53,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    gitfast
     sublime
-    osx
     docker
     ssh-agent
     zsh-autosuggestions
@@ -38,14 +61,11 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# AWS Assume Role
-source $(which assume-role)
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-export EDITOR="/usr/local/bin/subl"
+###
+#
+# Terminal alsiases and functions
+#
+###
 
 termnot() { terminal-notifier -sound Ping -message "$1" -execute 'open /Applications/iTerm.app'; }
 
@@ -83,9 +103,6 @@ docker-compose-rebuild() {
     docker-compose --compatibility up --force-recreate
 }
 
-# # https://github.com/renewdotcom/renew-dev-tools/pull/1/
-# export AWS_PROFILE=mfa_session
-
 # https://github.com/github/hub/issues/1219
 ghpr() {
     current_branch="$(git branch | sed -n 's/^\* //p')"
@@ -107,9 +124,7 @@ source_dotenv() {
   export $(grep -v '^#' .env | xargs -0)
 }
 
-# Alias for deleting remote branches: Usage `drm feature/test-feature`
 alias gbdr='git push origin --delete "$1"'
-
 alias gbav='git branch --all -vv'
 alias gbv='git branch -vv'
 alias gdc='git diff --cached'
@@ -153,22 +168,8 @@ alias sudo='sudo '
 
 alias fancytree='tree -lhgupC'
 
-alias verd-dev="cd ~/Development/verd-dev-prefs"
-
-# https://www.michaelehead.com/2016/02/06/installing-gems-without-sudo.html
-# Fix ruby sudo install
-export GEM_HOME=${HOME}/.gem
-export PATH="$GEM_HOME/bin:$PATH"
-
-alias ec2ssh='~/.bin/ec2ssh.sh'
-
 tcp-process() {
     sudo lsof -i tcp:$1 | grep LISTEN
 }
 
 alias pag='ps aux | grep -i $1'
-
-# Go stuff
-export GOPATH="${HOME}/.go"
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
