@@ -102,6 +102,7 @@ xcode-select --install
 brew install pyenv
 pyenv install 3.8.0 --skip-existing
 pyenv global 3.8.0
+ln -s /Users/mike/.pyenv/shims/python3 /usr/local/bin/python3
 pip install --upgrade pip
 
 # # Install pipenv
