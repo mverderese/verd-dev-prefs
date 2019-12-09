@@ -65,6 +65,8 @@ ln -s "$SCRIPT_DIR/iTerm/mverderese.zsh-theme" ./.oh-my-zsh/themes/mverderese.zs
 rm -f ./.ssh/config
 ln -s "$SCRIPT_DIR/ssh/ssh_config" ./.ssh/config
 
+xcode-select --install
+
 # Install hub - git alternative
 brew install hub
 
@@ -75,18 +77,9 @@ brew install coreutils
 # Install node
 brew install nvm
 mkdir -p ~/.nvm
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 12.13.0
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 12.13.0
-
-# Upgrade npm
-npm install --global npm
-
-# Install cachegrind
-brew install qcachegrind
-brew install graphviz
-
-# Install nnn
-brew install nnn
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 12.13.1
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 12.13.1
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm alias default 12.13.1
 
 # Install speedtest_cli
 brew install speedtest_cli
@@ -99,10 +92,7 @@ brew install tree
 brew install tmux
 brew install tig
 brew install postgresql
-brew install yarn
 brew install htop
-brew tap coinbase/assume-role
-brew install assume-role
 
 # Upgrade brews
 brew upgrade
@@ -110,26 +100,16 @@ brew upgrade
 # Install python
 xcode-select --install
 brew install pyenv
-brew install pipenv
+pyenv install 3.8.0 --skip-existing
+pyenv global 3.8.0
+pip install --upgrade pip
+
+# # Install pipenv
+pip install pipenv
 rm -rf ~/.oh-my-zsh/custom/pipenv_completion.zsh
 pipenv --completion >> ~/.oh-my-zsh/custom/pipenv_completion.zsh
 
-pyenv install 3.7.4 --skip-existing
-
-# Install python3 packages
-/usr/local/bin/python3 -m pip install black
-/usr/local/bin/python3 -m pip install flake8
-
-# Go development
-export GOPATH="${HOME}/.go"
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-test -d "${GOPATH}" || mkdir "${GOPATH}"
-test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
-brew install go
-go get golang.org/x/tools/cmd/godoc
-go get golang.org/x/lint/golint
-
-brew install dep
+# # Install other global pip packages
+pip install awscli
 
 terminal-notifier -message "Done setting up dev machine"
