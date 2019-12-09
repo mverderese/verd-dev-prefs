@@ -113,5 +113,10 @@ pipenv --completion >> ~/.oh-my-zsh/custom/pipenv_completion.zsh
 # # Install other global pip packages
 pip install awscli
 pip install pre-commit
+ln -s $(which pre-commit) /usr/local/bin/pre-commit
+pip install black
+ln -s $(which black) /usr/local/bin/black
+pip install flake8
+ln -s $(which flake8) /usr/local/bin/flake8
 
 terminal-notifier -message "Done setting up dev machine"
