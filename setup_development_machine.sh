@@ -111,5 +111,6 @@ pipenv --completion >> ~/.oh-my-zsh/custom/pipenv_completion.zsh
 
 # # Install other global pip packages
 pip install awscli
+pip install pre-commit
 
 terminal-notifier -message "Done setting up dev machine"
