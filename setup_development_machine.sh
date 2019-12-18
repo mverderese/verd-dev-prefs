@@ -119,4 +119,7 @@ ln -s $(which black) /usr/local/bin/black
 pip install flake8
 ln -s $(which flake8) /usr/local/bin/flake8
 
+brew cask install docker       # Install Docker
+open /Applications/Docker.app  # Start Docker
+
 terminal-notifier -message "Done setting up dev machine"
