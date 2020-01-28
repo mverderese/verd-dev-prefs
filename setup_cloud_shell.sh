@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Install oh-my-zsh
+file=~/.oh-my-zsh/oh-my-zsh.sh
+if [ ! -e "$file" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    echo "\n\n\nRun this script again!"
+    exit
+fi
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+
+mkdir -p /usr/local/bin/
+sudo chown ${USER}:${USER} /usr/local/bin
+
+# Create symbolic links for oh-my-zsh
+cd ~/
+
+rm -f ./.zshrc
+ln -s "$SCRIPT_DIR/iTerm/.zshrc" ./.zshrc
+
+rm -f ./.tmux.conf
+ln -s "$SCRIPT_DIR/iTerm/.tmux.conf" ./.tmux.conf
+
+rm -f ./.bash_profile
+ln -s "$SCRIPT_DIR/iTerm/.bash_profile" ./.bash_profile
+
+rm -f ./.gitconfig
+ln -s "$SCRIPT_DIR/iTerm/.gitconfig" ./.gitconfig
+
+rm -f ./.oh-my-zsh/themes/mverderese.zsh-theme
+ln -s "$SCRIPT_DIR/iTerm/mverderese.zsh-theme" ./.oh-my-zsh/themes/mverderese.zsh-theme
+
+# Create symbolic link for ssh config
+rm -f ./.ssh/config
+ln -s "$SCRIPT_DIR/ssh/ssh_config" ./.ssh/config
+
+# Supress apt warnings
+touch ~/.cloudshell/no-apt-get-warning
+
+# Install homebrew
+# https://docs.brew.sh/Homebrew-on-Linux
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+
+# Install hub - git alternative
+brew install hub
+
+# Install tac
+# https://unix.stackexchange.com/a/114042/162182
+brew install coreutils
+
+# Install node
+brew install nvm
+mkdir -p ~/.nvm
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 12.13.1
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 12.13.1
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm alias default 12.13.1
+
+# Install speedtest_cli
+brew install speedtest_cli
+
+# Install terminal notifier
+brew install terminal-notifier
+
+# Install useful tools
+brew install tree
+brew install tmux
+brew install tig
+brew install postgresql
+brew install htop
+
+# Upgrade brews
+brew upgrade
+
+# Install python
+brew install pyenv
+pyenv install 3.8.0 --skip-existing
+pyenv global 3.8.0
+ln -s /Users/mike/.pyenv/shims/python3 /usr/local/bin/python3
+pip install --upgrade pip
+
+# # Install pipenv
+pip install pipenv
+rm -rf ~/.oh-my-zsh/custom/pipenv_completion.zsh
+pipenv --completion >> ~/.oh-my-zsh/custom/pipenv_completion.zsh
+
+# # Install other global pip packages
+pip install awscli
+pip install pre-commit
+ln -s $(which pre-commit) /usr/local/bin/pre-commit
+pip install black
+ln -s $(which black) /usr/local/bin/black
+pip install flake8
+ln -s $(which flake8) /usr/local/bin/flake8
+
+brew cask install docker       # Install Docker
+open /Applications/Docker.app  # Start Docker
+
+terminal-notifier -message "Done setting up dev machine"
