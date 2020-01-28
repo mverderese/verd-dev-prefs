@@ -41,6 +41,7 @@ rm -f ./.ssh/config
 ln -s "$SCRIPT_DIR/ssh/ssh_config" ./.ssh/config
 
 # Supress apt warnings
+mkdir -p ~/.cloudshell/
 touch ~/.cloudshell/no-apt-get-warning
 
 # Install homebrew
@@ -59,11 +60,13 @@ brew install hub
 brew install coreutils
 
 # Install node
+brew uninstall nvm
+sudo rm -rf /usr/local/nvm
 brew install nvm
 mkdir -p ~/.nvm
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 12.13.1
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 12.13.1
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm alias default 12.13.1
+NVM_DIR="$HOME/.nvm" . /usr/local/nvm/nvm.sh && nvm install 12.13.1
+NVM_DIR="$HOME/.nvm" . /usr/local/nvm/nvm.sh && nvm use 12.13.1
+NVM_DIR="$HOME/.nvm" . /usr/local/nvm/nvm.sh && nvm alias default 12.13.1
 
 # Install speedtest_cli
 brew install speedtest_cli
@@ -82,18 +85,18 @@ brew install pyenv
 pyenv install 3.8.0 --skip-existing
 pyenv global 3.8.0
 ln -s /Users/mike/.pyenv/shims/python3 /usr/local/bin/python3
-pip install --upgrade pip
+/home/mike/.pyenv/versions/3.8.0/bin/pip3.8 install --upgrade pip
 
 # # Install pipenv
-pip install pipenv
+/home/mike/.pyenv/versions/3.8.0/bin/pip3.8 install pipenv
 rm -rf ~/.oh-my-zsh/custom/pipenv_completion.zsh
 pipenv --completion >> ~/.oh-my-zsh/custom/pipenv_completion.zsh
 
 # # Install other global pip packages
-pip install awscli
-pip install pre-commit
+/home/mike/.pyenv/versions/3.8.0/bin/pip3.8 install awscli
+/home/mike/.pyenv/versions/3.8.0/bin/pip3.8 install pre-commit
 ln -s $(which pre-commit) /usr/local/bin/pre-commit
-pip install black
+/home/mike/.pyenv/versions/3.8.0/bin/pip3.8 install black
 ln -s $(which black) /usr/local/bin/black
-pip install flake8
+/home/mike/.pyenv/versions/3.8.0/bin/pip3.8 install flake8
 ln -s $(which flake8) /usr/local/bin/flake8
