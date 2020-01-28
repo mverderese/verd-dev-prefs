@@ -22,7 +22,7 @@ sudo chown ${USER}:${USER} /usr/local/bin
 cd ~/
 
 rm -f ./.zshrc
-ln -s "$SCRIPT_DIR/iTerm/.zshrc" ./.zshrc
+ln -s "$SCRIPT_DIR/iTerm/.zshrc_gcs" ./.zshrc
 
 rm -f ./.tmux.conf
 ln -s "$SCRIPT_DIR/iTerm/.tmux.conf" ./.tmux.conf
