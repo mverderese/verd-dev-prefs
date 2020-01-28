@@ -5,6 +5,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Install oh-my-zsh
 file=~/.oh-my-zsh/oh-my-zsh.sh
 if [ ! -e "$file" ]; then
+    sudo apt install -y zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     echo "\n\n\nRun this script again!"
     exit
@@ -67,15 +68,11 @@ NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm alias default 12.13.1
 # Install speedtest_cli
 brew install speedtest_cli
 
-# Install terminal notifier
-brew install terminal-notifier
-
 # Install useful tools
 brew install tree
 brew install tmux
 brew install tig
 brew install postgresql
-brew install htop
 
 # Upgrade brews
 brew upgrade
@@ -100,8 +97,3 @@ pip install black
 ln -s $(which black) /usr/local/bin/black
 pip install flake8
 ln -s $(which flake8) /usr/local/bin/flake8
-
-brew cask install docker       # Install Docker
-open /Applications/Docker.app  # Start Docker
-
-terminal-notifier -message "Done setting up dev machine"
