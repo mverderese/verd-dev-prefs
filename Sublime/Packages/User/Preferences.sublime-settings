@@ -98,9 +98,10 @@
 	],
 	"rulers":
 	[
+		50,
 		72,
 		88,
-		100
+		120
 	],
 	"tab_size": 4,
 	"theme": "Adaptive.sublime-theme",
