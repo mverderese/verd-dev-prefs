@@ -64,9 +64,9 @@ brew uninstall nvm
 sudo rm -rf /usr/local/nvm
 brew install nvm
 mkdir -p ~/.nvm
-NVM_DIR="$HOME/.nvm" . /usr/local/nvm/nvm.sh && nvm install 12.13.1
-NVM_DIR="$HOME/.nvm" . /usr/local/nvm/nvm.sh && nvm use 12.13.1
-NVM_DIR="$HOME/.nvm" . /usr/local/nvm/nvm.sh && nvm alias default 12.13.1
+NVM_DIR="$HOME/.nvm" . /home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh && nvm install 12.13.1
+NVM_DIR="$HOME/.nvm" . /home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh && nvm use 12.13.1
+NVM_DIR="$HOME/.nvm" . /home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh && nvm alias default 12.13.1
 
 # Install speedtest_cli
 brew install speedtest_cli
