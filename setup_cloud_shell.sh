@@ -31,7 +31,7 @@ rm -f ./.bash_profile
 ln -s "$SCRIPT_DIR/iTerm/.bash_profile" ./.bash_profile
 
 rm -f ./.gitconfig
-ln -s "$SCRIPT_DIR/iTerm/.gitconfig" ./.gitconfig
+ln -s "$SCRIPT_DIR/iTerm/.gitconfig_gcs" ./.gitconfig
 
 rm -f ./.oh-my-zsh/themes/mverderese.zsh-theme
 ln -s "$SCRIPT_DIR/iTerm/mverderese.zsh-theme" ./.oh-my-zsh/themes/mverderese.zsh-theme
@@ -60,7 +60,6 @@ brew install hub
 brew install coreutils
 
 # Install node
-brew uninstall nvm
 sudo rm -rf /usr/local/nvm
 brew install nvm
 mkdir -p ~/.nvm
@@ -95,8 +94,8 @@ pipenv --completion >> ~/.oh-my-zsh/custom/pipenv_completion.zsh
 # # Install other global pip packages
 /home/mike/.pyenv/versions/3.8.0/bin/pip3.8 install awscli
 /home/mike/.pyenv/versions/3.8.0/bin/pip3.8 install pre-commit
-ln -s $(which pre-commit) /usr/local/bin/pre-commit
+ln -s /home/mike/.pyenv/versions/3.8.0/bin/pre-commit /usr/local/bin/pre-commit
 /home/mike/.pyenv/versions/3.8.0/bin/pip3.8 install black
-ln -s $(which black) /usr/local/bin/black
+ln -s /home/mike/.pyenv/versions/3.8.0/bin/black /usr/local/bin/black
 /home/mike/.pyenv/versions/3.8.0/bin/pip3.8 install flake8
-ln -s $(which flake8) /usr/local/bin/flake8
+ln -s /home/mike/.pyenv/versions/3.8.0/bin/flake8 /usr/local/bin/flake8
