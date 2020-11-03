@@ -90,6 +90,8 @@ brew install tmux
 brew install tig
 brew install postgresql
 brew install htop
+brew install ffmpeg
+brew install glow
 
 # Upgrade brews
 brew upgrade
@@ -115,6 +117,8 @@ pip install black
 ln -s $(which black) /usr/local/bin/black
 pip install flake8
 ln -s $(which flake8) /usr/local/bin/flake8
+pip install youtube-dl
+ln -s $(which youtube-dl) /usr/local/bin/youtube-dl
 
 brew cask install docker       # Install Docker
 open /Applications/Docker.app  # Start Docker

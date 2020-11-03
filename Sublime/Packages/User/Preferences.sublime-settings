@@ -93,8 +93,10 @@
 		"ERB Autocomplete",
 		"ISML",
 		"JSONLint",
+		"SublimeLinter-contrib-yamllint",
 		"SublimeLinter-eslint",
-		"Vintage"
+		"Vintage",
+		"zzz A File Icon zzz"
 	],
 	"rulers":
 	[
