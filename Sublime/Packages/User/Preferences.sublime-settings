@@ -95,8 +95,7 @@
 		"JSONLint",
 		"SublimeLinter-contrib-yamllint",
 		"SublimeLinter-eslint",
-		"Vintage",
-		"zzz A File Icon zzz"
+		"Vintage"
 	],
 	"rulers":
 	[

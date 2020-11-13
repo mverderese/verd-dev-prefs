@@ -7,7 +7,7 @@ find . | grep -i ".*\.ttf" | xargs -I {} sudo cp {} /Library/Fonts
 
 file=/usr/local/bin/brew
 if [ ! -e "$file" ]; then
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 # Create symbolic links for sublime packages
@@ -64,8 +64,8 @@ ln -s "$SCRIPT_DIR/ssh/ssh_config" ./.ssh/config
 
 xcode-select --install
 
-# Install hub - git alternative
-brew install hub
+# Install github
+brew install gh
 
 # Install tac
 # https://unix.stackexchange.com/a/114042/162182
@@ -74,9 +74,9 @@ brew install coreutils
 # Install node
 brew install nvm
 mkdir -p ~/.nvm
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 12.13.1
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 12.13.1
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm alias default 12.13.1
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 14.15.0
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 14.15.0
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm alias default 14.15.0
 
 # Install speedtest_cli
 brew install speedtest_cli
@@ -97,10 +97,28 @@ brew install glow
 brew upgrade
 
 # Install python
-xcode-select --install
+echo "Installing Python Dependencies"
 brew install pyenv
-pyenv install 3.8.0 --skip-existing
-pyenv global 3.8.0
+brew install zlib
+brew install sqlite
+brew install bzip2
+brew install libiconv
+brew install libzip
+echo "Done!"
+echo
+echo -e "Setting Environment Variables"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/sqlite/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/sqlite/include"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/sqlite/lib/pkgconfig"
+echo "Done!"
+echo
+echo "Installing Python 3.8.6"
+pyenv install 3.8.6
+echo "Done!"
+pyenv global 3.8.6
 ln -s /Users/mike/.pyenv/shims/python3 /usr/local/bin/python3
 pip install --upgrade pip
 
@@ -110,7 +128,6 @@ rm -rf ~/.oh-my-zsh/custom/pipenv_completion.zsh
 pipenv --completion >> ~/.oh-my-zsh/custom/pipenv_completion.zsh
 
 # # Install other global pip packages
-pip install awscli
 pip install pre-commit
 ln -s $(which pre-commit) /usr/local/bin/pre-commit
 pip install black

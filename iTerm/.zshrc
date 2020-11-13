@@ -105,7 +105,7 @@ docker-compose-rebuild() {
 ghpr() {
     current_branch="$(git branch | sed -n 's/^\* //p')"
     git push -u origin ${current_branch} &&
-    URL=$(hub pull-request -b "${1:-master}") &&
+    URL=$(gh pr create --base "${1:-master}") &&
     sleep 1 &&
     open $URL
 }
