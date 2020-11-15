@@ -10,6 +10,12 @@ if [ ! -e "$file" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
+# Install Mac Applications
+brew cask install sublime-text
+brew cask install google-chrome
+brew cask install alfred
+
+
 # Create symbolic links for sublime packages
 cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
 rm -rf ./User
@@ -34,7 +40,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # Create ssh key
 file=~/.ssh/id_rsa
 if [ ! -e "$file" ]; then
-    ssh-keygen -t rsa -b 4096
+    ssh-keygen -t rsa -b 4096 -C "verderese@gmail.com"
 fi
 
 mkdir -p /usr/local/bin/
@@ -57,10 +63,6 @@ ln -s "$SCRIPT_DIR/iTerm/.gitconfig" ./.gitconfig
 
 rm -f ./.oh-my-zsh/themes/mverderese.zsh-theme
 ln -s "$SCRIPT_DIR/iTerm/mverderese.zsh-theme" ./.oh-my-zsh/themes/mverderese.zsh-theme
-
-# Create symbolic link for ssh config
-rm -f ./.ssh/config
-ln -s "$SCRIPT_DIR/ssh/ssh_config" ./.ssh/config
 
 xcode-select --install
 
@@ -92,6 +94,7 @@ brew install postgresql
 brew install htop
 brew install ffmpeg
 brew install glow
+brew install pgcli
 
 # Upgrade brews
 brew upgrade
