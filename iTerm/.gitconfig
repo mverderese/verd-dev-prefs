@@ -1,5 +1,5 @@
 [core]
-	editor = subl -n -w
+	editor = code -n -w
 [user]
 	name = Mike Verderese
 	email = verderese@gmail.com
@@ -33,8 +33,6 @@
 #   git total --author=john@example.com
 #       Displays the total number of changes by john@example.com.
 
-[alias]
-    total = "!f() { git log $@ --numstat | perl -ne '$i+=$1 and $d+=$2 if /^(\\d+)\\s+(\\d+)/; END { print \"$i insertion(s), $d deletion(s)\n\"}'; }; f"
 [pager]
     branch = false
 [filter "lfs"]

@@ -76,9 +76,9 @@ brew install coreutils
 # Install node
 brew install nvm
 mkdir -p ~/.nvm
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 14.15.0
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 14.15.0
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm alias default 14.15.0
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 12.13 
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 12.13 
+NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm alias default 12.13 
 
 # Install speedtest_cli
 brew install speedtest_cli
