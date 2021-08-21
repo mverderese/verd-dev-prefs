@@ -10,13 +10,8 @@ if [ ! -e "$file" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-# Install Mac Applications
-brew cask install sublime-text
-brew cask install google-chrome
-brew cask install alfred
-
-
 # Create symbolic links for sublime packages
+mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
 cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
 rm -rf ./User
 ln -s "$SCRIPT_DIR/Sublime/Packages/User" ./User
@@ -73,13 +68,6 @@ brew install gh
 # https://unix.stackexchange.com/a/114042/162182
 brew install coreutils
 
-# Install node
-brew install nvm
-mkdir -p ~/.nvm
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm install 12.13 
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm use 12.13 
-NVM_DIR="$HOME/.nvm" . /usr/local/opt/nvm/nvm.sh && nvm alias default 12.13 
-
 # Install speedtest_cli
 brew install speedtest_cli
 
@@ -125,22 +113,7 @@ pyenv global 3.8.6
 ln -s /Users/mike/.pyenv/shims/python3 /usr/local/bin/python3
 pip install --upgrade pip
 
-# # Install pipenv
-pip install pipenv
-rm -rf ~/.oh-my-zsh/custom/pipenv_completion.zsh
-pipenv --completion >> ~/.oh-my-zsh/custom/pipenv_completion.zsh
-
-# # Install other global pip packages
-pip install pre-commit
-ln -s $(which pre-commit) /usr/local/bin/pre-commit
-pip install black
-ln -s $(which black) /usr/local/bin/black
-pip install flake8
-ln -s $(which flake8) /usr/local/bin/flake8
-pip install youtube-dl
-ln -s $(which youtube-dl) /usr/local/bin/youtube-dl
-
-brew cask install docker       # Install Docker
-open /Applications/Docker.app  # Start Docker
+brew install --cask docker       # Install Docker
+open /Applications/Docker.app    # Start Docker
 
 terminal-notifier -message "Done setting up dev machine"
