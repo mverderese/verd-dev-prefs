@@ -6,10 +6,6 @@
 #
 ###
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 export VIRTUAL_ENV_DISABLE_PROMPT=
@@ -54,6 +50,8 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+eval "$(nodenv init -)"
 
 ###
 #
@@ -106,8 +104,6 @@ alias gbav='git branch --all -vv'
 alias gbv='git branch -vv'
 alias gdc='git diff --cached'
 alias tia='tig --all'
-alias gl='git pull --rebase'
-alias gcd='git checkout development'
 alias gdst='git diff --stat'
 alias gdsst='git diff --shortstat'
 alias glom='git pull origin $(git_main_branch)'

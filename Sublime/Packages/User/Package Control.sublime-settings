@@ -1,53 +1,11 @@
 {
 	"bootstrapped": true,
+	"installed_packages":
+	[
+		"Git",
+		"Package Control",
+	],
 	"in_process_packages":
 	[
 	],
-	"installed_packages":
-	[
-		"A File Icon",
-		"Ansible",
-		"AutoDocstring",
-		"Babel",
-		"Clickable URLs",
-		"DocBlockr",
-		"Dockerfile Syntax Highlighting",
-		"Git",
-		"GraphQL",
-		"HTML-CSS-JS Prettify",
-		"Indent XML",
-		"INI",
-		"Javascript Beautify",
-		"Jedi - Python autocompletion",
-		"Jinja2",
-		"JsFormat",
-		"LiveReload",
-		"MarkdownLivePreview",
-		"MarkdownPreview",
-		"MarkdownTOC",
-		"Multi Select Alphabetizer",
-		"nginx",
-		"Package Control",
-		"PackageResourceViewer",
-		"PostgreSQL Syntax Highlighting",
-		"Pretty JSON",
-		"Pretty YAML",
-		"Project Specific Syntax Settings",
-		"Python Breakpoints",
-		"Sass",
-		"SFTP",
-		"SideBarEnhancements",
-		"SQLTools",
-		"SublimeLinter",
-		"SublimeLinter-contrib-ansible-lint",
-		"SublimeLinter-contrib-yaml-lint",
-		"SublimeLinter-contrib-yamllint",
-		"SublimeLinter-eslint",
-		"SublimeLinter-flake8",
-		"SummitLinter",
-		"Tmux Syntax Highlight",
-		"TypeScript",
-		"uroboroSQL Formatter",
-		"xml2json"
-	]
 }
