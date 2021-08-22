@@ -118,6 +118,10 @@ brew install nodenv
 nodenv install 14.17.5
 nodenv global 14.17.5
 
+brew tap nodenv/nodenv
+brew install jetbrains-npm
+
+
 brew install --cask docker       # Install Docker
 open /Applications/Docker.app    # Start Docker
 
