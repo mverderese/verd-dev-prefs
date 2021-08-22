@@ -113,6 +113,11 @@ pyenv global 3.8.6
 ln -s /Users/mike/.pyenv/shims/python3 /usr/local/bin/python3
 pip install --upgrade pip
 
+# Install node
+brew install nodenv
+nodenv install 14.17.5
+nodenv global 14.17.5
+
 brew install --cask docker       # Install Docker
 open /Applications/Docker.app    # Start Docker
 
