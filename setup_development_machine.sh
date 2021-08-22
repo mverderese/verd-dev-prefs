@@ -106,12 +106,11 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/sqlite/lib/pkgconfig"
 echo "Done!"
 echo
-echo "Installing Python 3.8.6"
-pyenv install 3.8.6
+echo "Installing Python 3.9.6"
+pyenv install 3.9.6
 echo "Done!"
-pyenv global 3.8.6
-ln -s /Users/mike/.pyenv/shims/python3 /usr/local/bin/python3
-pip install --upgrade pip
+pyenv global 3.9.6
+pyenv exec pip install --upgrade pip
 
 # Install node
 brew install nodenv
@@ -121,6 +120,8 @@ nodenv global 14.17.5
 brew tap nodenv/nodenv
 brew install jetbrains-npm
 
+# Install google cloud CLI
+brew install --cask google-cloud-sdk
 
 brew install --cask docker       # Install Docker
 open /Applications/Docker.app    # Start Docker
