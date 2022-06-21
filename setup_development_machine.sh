@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -17,6 +17,9 @@ rm -rf ./User
 ln -s "$SCRIPT_DIR/Sublime/Packages/User" ./User
 rm -rf ./Themes
 ln -s "$SCRIPT_DIR/Sublime/Packages/Themes" ./Themes
+
+# Create secrets file for shell
+touch ~/.zsh_env
 
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 git config --global core.editor "subl -n -w"

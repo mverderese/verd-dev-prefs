@@ -44,10 +44,11 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 
-eval "$(nodenv init -)"
+# Source external files
+source $HOME/.bash_profile
+source $HOME/.zprofile
+source $HOME/.zsh_env
 
 ###
 #
@@ -134,3 +135,4 @@ tcp-process() {
 alias pag='ps aux | grep -i $1'
 
 alias randpass='openssl rand -base64 30'
+
