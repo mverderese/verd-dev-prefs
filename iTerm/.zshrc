@@ -46,7 +46,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Source external files
 source $HOME/.bash_profile
-source $HOME/.zprofile
 source $HOME/.zsh_env
 
 ###
@@ -121,6 +120,9 @@ gpasfforce () {
       fi
     done
 }
+
+gcla () { gcloud config configurations activate $1 }
+gcll () { gcloud config configurations list }
 
 alias c='clear'
 

@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "ansible-playbook production.yml --limit 'tag_class_api:&tag_environment_production' --tags api_role; termnot 'Done deploying to production!'",
-    "uid" : "D0532F01-4708-48B9-9E10-A75A03A56546",
-    "name" : "Ansible Production API",
-    "keyword" : ""
-  }
-}

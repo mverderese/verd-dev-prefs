@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "$('#ghx-quick-filters, #ghx-header').hide();\n$('#ghx-pool').css('height', '100vh');",
-    "uid" : "773866A7-54FB-4033-9E52-09B8C3D07BA4",
-    "name" : "Hide JIRA Header",
-    "keyword" : ""
-  }
-}

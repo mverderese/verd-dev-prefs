@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "ansible-playbook preview.yml --limit 'tag_class_api:&tag_environment_preview' --tags api_role; termnot 'Done deploying to preview!'",
-    "uid" : "7D9EF61D-5128-4A32-8A46-BBFE4B5798B5",
-    "name" : "Ansible Preview API",
-    "keyword" : ""
-  }
-}

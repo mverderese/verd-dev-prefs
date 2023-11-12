@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "git fetch --all --prune && git checkout master && git pull && yarn --network-concurrency=1 && termnot 'Running server!' && yarn dev",
-    "uid" : "91ADC970-7A31-4172-8783-FAA1B71771DF",
-    "name" : "JS Run Latest Master",
-    "keyword" : ""
-  }
-}

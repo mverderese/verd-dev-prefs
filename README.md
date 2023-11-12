@@ -1,4 +1,4 @@
-# README #
+# Verd Development Tools and Preferences #
 
 A bunch of useful tools and preferences for development on NodeJS and Python on a Mac with
 SublimeText
@@ -15,12 +15,19 @@ You'll be prompted for your root password a few times
 
 ## What is installed
 
-1. Python 3
+1. Python
 2. NodeJS
-3. Tree
-4. Tig
-2. AWS CLI
-3. Symbolic link to a bunch of useful Sublime Packages. This allows syncing between multiple comptuers
-    - See the installed packages list in the Sublime UI
+3. Shell tools
 4. Symbolic link to a zsh theme that shows current directory, git status, and virtualenv
-5. Symolic link to a `.zshrc` file with useful macros and plugins:
+5. Symolic link to a `.zshrc` file with useful macros and plugins
+6. Github
+7. Google Cloud SDK
+
+Once complete, run the following:
+```
+gh auth login
+```
+
+```
+gcloud auth login
+```

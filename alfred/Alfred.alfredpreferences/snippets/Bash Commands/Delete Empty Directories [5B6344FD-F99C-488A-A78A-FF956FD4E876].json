@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "find . -type d -empty -delete",
-    "uid" : "5B6344FD-F99C-488A-A78A-FF956FD4E876",
-    "name" : "Delete Empty Directories",
-    "keyword" : ""
-  }
-}

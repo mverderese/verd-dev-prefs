@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+xcode-select --install
+
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 cd "$SCRIPT_DIR/Fonts/consolas/"
@@ -7,19 +9,14 @@ find . | grep -i ".*\.ttf" | xargs -I {} sudo cp {} /Library/Fonts
 
 file=/usr/local/bin/brew
 if [ ! -e "$file" ]; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
-
-# Create symbolic links for sublime packages
-mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
-cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
-rm -rf ./User
-ln -s "$SCRIPT_DIR/Sublime/Packages/User" ./User
-rm -rf ./Themes
-ln -s "$SCRIPT_DIR/Sublime/Packages/Themes" ./Themes
 
 # Create secrets file for shell
 touch ~/.zsh_env
+
+mkdir -p /usr/local/bin/
+sudo chown ${USER}:admin /usr/local/bin
 
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 git config --global core.editor "subl -n -w"
@@ -27,7 +24,7 @@ git config --global core.editor "subl -n -w"
 # Install oh-my-zsh
 file=~/.oh-my-zsh/oh-my-zsh.sh
 if [ ! -e "$file" ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     echo "\n\n\nRun this script again!"
     exit
 fi
@@ -35,14 +32,6 @@ fi
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-# Create ssh key
-file=~/.ssh/id_rsa
-if [ ! -e "$file" ]; then
-    ssh-keygen -t rsa -b 4096 -C "verderese@gmail.com"
-fi
-
-mkdir -p /usr/local/bin/
-sudo chown ${USER}:admin /usr/local/bin
 
 # Create symbolic links for oh-my-zsh
 cd ~/
@@ -61,8 +50,6 @@ ln -s "$SCRIPT_DIR/iTerm/.gitconfig" ./.gitconfig
 
 rm -f ./.oh-my-zsh/themes/mverderese.zsh-theme
 ln -s "$SCRIPT_DIR/iTerm/mverderese.zsh-theme" ./.oh-my-zsh/themes/mverderese.zsh-theme
-
-xcode-select --install
 
 # Install github
 brew install gh
@@ -93,40 +80,63 @@ brew upgrade
 # Install python
 echo "Installing Python Dependencies"
 brew install pyenv
-brew install zlib
-brew install sqlite
-brew install bzip2
-brew install libiconv
-brew install libzip
 echo "Done!"
 echo
-echo -e "Setting Environment Variables"
-export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
-export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
-export LDFLAGS="${LDFLAGS} -L/usr/local/opt/sqlite/lib"
-export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/sqlite/include"
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
-export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/sqlite/lib/pkgconfig"
+
+echo "Installing Python 3.12.0"
+pyenv install 3.12.0
 echo "Done!"
-echo
-echo "Installing Python 3.9.6"
-pyenv install 3.9.6
-echo "Done!"
-pyenv global 3.9.6
+pyenv global 3.12.0
 pyenv exec pip install --upgrade pip
 
 # Install node
 brew install nodenv
-nodenv install 14.17.5
-nodenv global 14.17.5
+nodenv install 20.9.0
+nodenv global 20.9.0
 
-brew tap nodenv/nodenv
-brew install jetbrains-npm
-
-# Install google cloud CLI
 brew install --cask google-cloud-sdk
 
-brew install --cask docker       # Install Docker
-open /Applications/Docker.app    # Start Docker
+brew install docker
+
+gh auth login
+
+gcloud auth login mike@useodin.com
+gcloud auth login mike@redkrypton.com
+
+gcloud config configurations create odin-main
+gcloud config configurations activate odin-main
+gcloud config set account mike@useodin.com
+gcloud config set project odin-main
+gcloud config set region us-central1
+
+gcloud config configurations create odin-prod
+gcloud config configurations activate odin-prod
+gcloud config set account mike@useodin.com
+gcloud config set project odin-prod
+gcloud config set region us-central1
+
+gcloud config configurations create wellcore-non-prod
+gcloud config configurations activate wellcore-non-prod
+gcloud config set account mike@redkrypton.com
+gcloud config set project wellcore-cloud-non-prod
+gcloud config set region us-central1
+
+gcloud config configurations create wellcore-prod
+gcloud config configurations activate wellcore-prod
+gcloud config set account mike@redkrypton.com
+gcloud config set project wellcore-cloud-prod
+gcloud config set region us-central1
+
+gcloud config configurations create gleamery-prod
+gcloud config configurations activate gleamery-prod
+gcloud config set account mike@redkrypton.com
+gcloud config set project gleamery-prod
+gcloud config set region us-central1
+
+gcloud config configurations create gleamery-non-prod
+gcloud config configurations create activate-non-prod
+gcloud config set account mike@redkrypton.com
+gcloud config set project gleamery-non-prod
+gcloud config set region us-central1
 
 terminal-notifier -message "Done setting up dev machine"
