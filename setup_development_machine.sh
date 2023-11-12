@@ -96,7 +96,7 @@ nodenv global 20.9.0
 
 brew install --cask google-cloud-sdk
 
-brew install docker
+brew install --cask docker
 
 gh auth login
 
