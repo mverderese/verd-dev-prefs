@@ -22,12 +22,3 @@ You'll be prompted for your root password a few times
 5. Symolic link to a `.zshrc` file with useful macros and plugins
 6. Github
 7. Google Cloud SDK
-
-Once complete, run the following:
-```
-gh auth login
-```
-
-```
-gcloud auth login
-```

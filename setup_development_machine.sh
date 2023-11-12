@@ -107,36 +107,42 @@ gcloud config configurations create odin-main
 gcloud config configurations activate odin-main
 gcloud config set account mike@useodin.com
 gcloud config set project odin-main
-gcloud config set region us-central1
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-a
 
 gcloud config configurations create odin-prod
 gcloud config configurations activate odin-prod
 gcloud config set account mike@useodin.com
 gcloud config set project odin-prod
-gcloud config set region us-central1
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-a
 
 gcloud config configurations create wellcore-non-prod
 gcloud config configurations activate wellcore-non-prod
 gcloud config set account mike@redkrypton.com
 gcloud config set project wellcore-cloud-non-prod
-gcloud config set region us-central1
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-a
 
 gcloud config configurations create wellcore-prod
 gcloud config configurations activate wellcore-prod
 gcloud config set account mike@redkrypton.com
 gcloud config set project wellcore-cloud-prod
-gcloud config set region us-central1
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-a
 
 gcloud config configurations create gleamery-prod
 gcloud config configurations activate gleamery-prod
 gcloud config set account mike@redkrypton.com
 gcloud config set project gleamery-prod
-gcloud config set region us-central1
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-a
 
 gcloud config configurations create gleamery-non-prod
-gcloud config configurations create activate-non-prod
+gcloud config configurations activate gleamery-non-prod
 gcloud config set account mike@redkrypton.com
 gcloud config set project gleamery-non-prod
-gcloud config set region us-central1
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-a
 
 terminal-notifier -message "Done setting up dev machine"
