@@ -145,4 +145,8 @@ gcloud config set project gleamery-non-prod
 gcloud config set compute/region us-central1
 gcloud config set compute/zone us-central1-a
 
+curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.7.1/cloud-sql-proxy.darwin.amd64
+mv ./cloud-sql-proxy /usr/local/bin/cloud-sql-proxy
+chmod +x /usr/local/bin/cloud-sql-proxy
+
 terminal-notifier -message "Done setting up dev machine"
