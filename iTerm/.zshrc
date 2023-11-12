@@ -38,7 +38,6 @@ plugins=(
     git
     sublime
     docker
-    ssh-agent
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -77,6 +76,8 @@ docker-destroy-all() {
      docker rm $(docker ps -a -q)
      # Delete all images
      docker rmi $(docker images -q) -f
+     # Delete cache
+     docker rm $(docker ps --filter=status=exited --filter=status=created -q)
      # Delete all networks
      docker network rm $(docker network ls -q)
 }
@@ -96,7 +97,7 @@ source_dotenv() {
   export $(grep -v '^#' .env | xargs -0)
 }
 
-alias gbdr='git push origin --delete "$1"'
+alias gbdr='git push origin --delete'
 alias gbav='git branch --all -vv'
 alias gbv='git branch -vv'
 alias gdc='git diff --cached'
@@ -129,7 +130,7 @@ alias sudo='sudo '
 alias fancytree='tree -lhgupC'
 
 tcp-process() {
-    sudo lsof -i tcp:$1 | grep LISTEN
+    lsof -i tcp:$1 | grep LISTEN
 }
 
 alias pag='ps aux | grep -i $1'
