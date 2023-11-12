@@ -139,3 +139,9 @@ alias pag='ps aux | grep -i $1'
 
 alias randpass='openssl rand -base64 30'
 
+eval "$(nodenv init -)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+

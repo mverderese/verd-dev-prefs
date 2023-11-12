@@ -79,6 +79,7 @@ brew upgrade
 
 # Install python
 echo "Installing Python Dependencies"
+brew install python
 brew install pyenv
 echo "Done!"
 echo
@@ -90,6 +91,7 @@ pyenv global 3.12.0
 pyenv exec pip install --upgrade pip
 
 # Install node
+brew install node
 brew install nodenv
 nodenv install 20.9.0
 nodenv global 20.9.0
@@ -148,5 +150,8 @@ gcloud config set compute/zone us-central1-a
 curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.7.1/cloud-sql-proxy.darwin.amd64
 mv ./cloud-sql-proxy /usr/local/bin/cloud-sql-proxy
 chmod +x /usr/local/bin/cloud-sql-proxy
+
+# https://forum.sublimetext.com/t/package-control-not-working-at-all/29219/7
+ln -sf /usr/local/Cellar/openssl@1.1/1.1.1o/lib/libcrypto.dylib /usr/local/lib/
 
 terminal-notifier -message "Done setting up dev machine"
