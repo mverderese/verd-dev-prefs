@@ -79,7 +79,6 @@ brew upgrade
 
 # Install python
 echo "Installing Python Dependencies"
-brew install python
 brew install pyenv
 echo "Done!"
 echo
@@ -91,7 +90,6 @@ pyenv global 3.12.0
 pyenv exec pip install --upgrade pip
 
 # Install node
-brew install node
 brew install nodenv
 nodenv install 20.9.0
 nodenv global 20.9.0
