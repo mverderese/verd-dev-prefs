@@ -124,6 +124,27 @@ gpasfforce () {
 gcla () { gcloud config configurations activate $1 }
 gcll () { gcloud config configurations list }
 
+odin-dev-db () {
+    gcla odin-main
+    cloud-sql-proxy --address 0.0.0.0 --port 5433 --gcloud-auth odin-main:us-central1:odin-main-dev-anon-instance-us-central1-pg-db
+}
+odin-qa-db () {
+    gcla odin-main
+    cloud-sql-proxy --address 0.0.0.0 --port 5434 --gcloud-auth odin-main:us-central1:odin-main-qa-anon-instance-us-central1-pg-db
+}
+odin-stg-db () {
+    gcla odin-prod
+    cloud-sql-proxy --address 0.0.0.0 --port 5435 --gcloud-auth odin-prod:us-central1:odin-prod-stg-instance-us-central1-pg-db
+}
+odin-prod-replica-db () {
+    gcla odin-prod
+    cloud-sql-proxy --address 0.0.0.0 --port 5436 --gcloud-auth odin-prod:us-central1:odin-prod-prod02-us-central1-pg-db-replica-2
+}
+odin-prod-db () {
+    gcla odin-prod
+    cloud-sql-proxy --address 0.0.0.0 --port 5437 --gcloud-auth odin-prod:us-central1:odin-prod-prod02-us-central1-pg-db
+}
+
 alias c='clear'
 
 # https://unix.stackexchange.com/a/148548/162182
