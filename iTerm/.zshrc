@@ -144,6 +144,11 @@ odin-prod-db () {
     gcla odin-prod
     cloud-sql-proxy --address 0.0.0.0 --port 5437 --gcloud-auth odin-prod:us-central1:odin-prod-prod02-us-central1-pg-db
 }
+wellcore-prod-replica-db () {
+    gcla wellcore-prod
+    cloud-sql-proxy --address 0.0.0.0 --port 5440 --gcloud-auth wellcore-cloud-prod:us-central1:wellcore-db-prod-replica
+}   
+
 
 alias c='clear'
 
