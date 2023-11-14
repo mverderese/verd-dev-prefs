@@ -15,8 +15,6 @@ fi
 
 cd $SCRIPT_DIR
 
-exit 0
-
 # Create secrets file for shell
 touch ~/.zsh_env
 
