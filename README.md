@@ -4,12 +4,14 @@ A bunch of useful tools and preferences for development on NodeJS and Python on 
 SublimeText
 
 ## Prerequisites
-1. Install SublimeText 3
+1. Install SublimeText
 2. Install SublimeText PackageControl
-3. Run SublimeText one time
+3. Run SublimeText one time then close
 
 ## Installation
-    bash ./setup_development_machine.sh
+```
+bash ./setup_development_machine.sh
+```
 
 You'll be prompted for your root password a few times
 
