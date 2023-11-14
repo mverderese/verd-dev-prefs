@@ -4,6 +4,6 @@
         "Vintage",
     ],
     "theme": "Material-Theme-Darker.sublime-theme",
-    "font_face": "consolas",
-    "font_size": 13
+    "font_face": "JetBrains Mono",
+    "font_size": 12
 }

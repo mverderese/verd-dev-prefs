@@ -5,12 +5,17 @@ xcode-select --install
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 cd "$SCRIPT_DIR/Fonts/consolas/"
+cd "$SCRIPT_DIR/Fonts/JetBrainsMono-2.304/"
 find . | grep -i ".*\.ttf" | xargs -I {} sudo cp {} /Library/Fonts
 
 file=/usr/local/bin/brew
 if [ ! -e "$file" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+cd $SCRIPT_DIR
+
+exit 0
 
 # Create secrets file for shell
 touch ~/.zsh_env
@@ -20,7 +25,7 @@ sudo chown ${USER}:admin /usr/local/bin
 
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 git config --global core.editor "subl -n -w"
-ln -s ./Sublime/Packages/User ~/Library/Application\ Support/Sublime\ Text/Packages
+ln -s "$SCRIPT_DIR/Sublime/Packages/User" ~/Library/Application\ Support/Sublime\ Text/Packages
 
 # Install oh-my-zsh
 file=~/.oh-my-zsh/oh-my-zsh.sh
