@@ -123,6 +123,13 @@ gcloud config set project odin-prod
 gcloud config set compute/region us-central1
 gcloud config set compute/zone us-central1-a
 
+gcloud config configurations create odin-infra
+gcloud config configurations activate odin-infra
+gcloud config set account mike@useodin.com
+gcloud config set project odin-infra
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-a
+
 gcloud config configurations create wellcore-non-prod
 gcloud config configurations activate wellcore-non-prod
 gcloud config set account mike@redkrypton.com
@@ -150,6 +157,10 @@ gcloud config set account mike@redkrypton.com
 gcloud config set project gleamery-non-prod
 gcloud config set compute/region us-central1
 gcloud config set compute/zone us-central1-a
+
+gcloud auth configure-docker
+gcloud auth configure-docker us-central1-docker.pkg.dev
+gcloud auth configure-docker us-docker.pkg.dev
 
 brew install cloud-sql-proxy
 
