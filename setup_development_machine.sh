@@ -13,6 +13,8 @@ if [ ! -e "$file" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+brew update && brew upgrade
+
 cd $SCRIPT_DIR
 
 # Create secrets file for shell
@@ -100,7 +102,6 @@ nodenv install 20.9.0
 nodenv global 20.9.0
 
 brew install --cask google-cloud-sdk
-
 brew install --cask docker
 
 gh auth login
@@ -154,5 +155,7 @@ brew install cloud-sql-proxy
 
 # https://forum.sublimetext.com/t/package-control-not-working-at-all/29219/7
 ln -sf /usr/local/Cellar/openssl@1.1/1.1.1o/lib/libcrypto.dylib /usr/local/lib/
+
+brew cleanup
 
 terminal-notifier -message "Done setting up dev machine"
