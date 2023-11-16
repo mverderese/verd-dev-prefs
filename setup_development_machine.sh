@@ -55,8 +55,9 @@ ln -s "$SCRIPT_DIR/iTerm/.gitconfig" ./.gitconfig
 rm -f ./.oh-my-zsh/themes/mverderese.zsh-theme
 ln -s "$SCRIPT_DIR/iTerm/mverderese.zsh-theme" ./.oh-my-zsh/themes/mverderese.zsh-theme
 
-# Install github
+# Install github and git flow
 brew install gh
+brew install git-flow
 
 # Install tac
 # https://unix.stackexchange.com/a/114042/162182
