@@ -8,7 +8,7 @@ cd "$SCRIPT_DIR/Fonts/JetBrainsMono-2.304/"
 sudo cp *.ttf /Library/Fonts
 cd $SCRIPT_DIR
 
-file=/usr/local/bin/brew
+file=/opt/homebrew/bin/brew
 if [ ! -e "$file" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/mike/.zprofile
@@ -25,6 +25,8 @@ sudo chown ${USER}:admin /usr/local/bin
 
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 git config --global core.editor "subl -n -w"
+mkdir -p ~/Library/Application\ Support/Sublime\ Text/Packages
+rm -rf ~/Library/Application\ Support/Sublime\ Text/Packages/User
 ln -s "$SCRIPT_DIR/Sublime/Packages/User" ~/Library/Application\ Support/Sublime\ Text/Packages
 
 # Install oh-my-zsh
@@ -168,7 +170,5 @@ brew install cloud-sql-proxy
 
 # https://forum.sublimetext.com/t/package-control-not-working-at-all/29219/7
 ln -sf /usr/local/Cellar/openssl@1.1/1.1.1o/lib/libcrypto.dylib /usr/local/lib/
-
-brew cleanup
 
 terminal-notifier -message "Done setting up dev machine"
