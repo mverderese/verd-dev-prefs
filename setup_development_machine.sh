@@ -4,16 +4,16 @@ xcode-select --install
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd "$SCRIPT_DIR/Fonts/consolas/"
 cd "$SCRIPT_DIR/Fonts/JetBrainsMono-2.304/"
-find . | grep -i ".*\.ttf" | xargs -I {} sudo cp {} /Library/Fonts
+sudo cp *.ttf /Library/Fonts
+cd $SCRIPT_DIR
 
 file=/usr/local/bin/brew
 if [ ! -e "$file" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/mike/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
-
-brew update && brew upgrade
 
 cd $SCRIPT_DIR
 
@@ -37,6 +37,8 @@ fi
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+brew update && brew upgrade
 
 
 # Create symbolic links for oh-my-zsh
