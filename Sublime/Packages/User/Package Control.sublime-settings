@@ -4,8 +4,10 @@
     ],
     "installed_packages": [
         "Color Highlighter",
+        "GraphQL",
         "HTML-CSS-JS Prettify",
         "MarkdownLivePreview",
+        "MarkdownPreview",
         "Material Theme",
         "Open URL",
         "Package Control",

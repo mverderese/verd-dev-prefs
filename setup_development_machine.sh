@@ -17,9 +17,6 @@ fi
 
 cd $SCRIPT_DIR
 
-# Create secrets file for shell
-touch ~/.zsh_env
-
 mkdir -p /usr/local/bin/
 sudo chown ${USER}:admin /usr/local/bin
 

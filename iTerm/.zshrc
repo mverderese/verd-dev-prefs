@@ -36,6 +36,7 @@ bashcompinit
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    kubectl
     sublime
     docker
     zsh-autosuggestions
@@ -46,7 +47,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Source external files
 source $HOME/.bash_profile
-source $HOME/.zsh_env
 
 ###
 #
@@ -126,27 +126,43 @@ gcll () { gcloud config configurations list }
 
 odin-dev-db () {
     gcla odin-main
+    gcloud config set account mike@useodin.com
     cloud-sql-proxy --address 0.0.0.0 --port 5433 --gcloud-auth odin-main:us-central1:odin-main-dev-anon-instance-us-central1-pg-db
 }
 odin-qa-db () {
     gcla odin-main
+    gcloud config set account mike@useodin.com
     cloud-sql-proxy --address 0.0.0.0 --port 5434 --gcloud-auth odin-main:us-central1:odin-main-qa-anon-instance-us-central1-pg-db
 }
 odin-stg-db () {
     gcla odin-prod
+    gcloud config set account mike@useodin.com
     cloud-sql-proxy --address 0.0.0.0 --port 5435 --gcloud-auth odin-prod:us-central1:odin-prod-stg-instance-us-central1-pg-db
 }
 odin-prod-replica-db () {
     gcla odin-prod
+    gcloud config set account mike@useodin.com
     cloud-sql-proxy --address 0.0.0.0 --port 5436 --gcloud-auth odin-prod:us-central1:odin-prod-prod02-us-central1-pg-db-replica-2
 }
 odin-prod-db () {
     gcla odin-prod
+    gcloud config set account mike@useodin.com
     cloud-sql-proxy --address 0.0.0.0 --port 5437 --gcloud-auth odin-prod:us-central1:odin-prod-prod02-us-central1-pg-db
 }
 wellcore-prod-replica-db () {
     gcla wellcore-prod
+    gcloud config set account mike@redkrypton.com
     cloud-sql-proxy --address 0.0.0.0 --port 5440 --gcloud-auth wellcore-cloud-prod:us-central1:wellcore-db-prod-replica
+}   
+wellcore-prod-db () {
+    gcla wellcore-prod
+    gcloud config set account mike@redkrypton.com
+    cloud-sql-proxy --address 0.0.0.0 --port 5441 --gcloud-auth wellcore-cloud-prod:us-central1:wellcore-db-prod
+}   
+gleamery-non-prod-db () {
+    gcla gleamery-non-prod
+    gcloud config set account mike@redkrypton.com
+    cloud-sql-proxy --address 0.0.0.0 --port 5450 --gcloud-auth gleamery-non-prod:us-central1:gleamery-db-non-prod
 }   
 
 
