@@ -158,6 +158,11 @@ wellcore-prod-db () {
     gcla wellcore-prod
     gcloud config set account mike@redkrypton.com
     cloud-sql-proxy --address 0.0.0.0 --port 5441 --gcloud-auth wellcore-cloud-prod:us-central1:wellcore-db-prod
+}  
+wellcore-non-prod-db () {
+    gcla wellcore-non-prod
+    gcloud config set account mike@redkrypton.com
+    cloud-sql-proxy --address 0.0.0.0 --port 5442 --gcloud-auth wellcore-cloud-non-prod:us-central1:wellcore-db-non-prod
 }   
 gleamery-non-prod-db () {
     gcla gleamery-non-prod
@@ -187,3 +192,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
