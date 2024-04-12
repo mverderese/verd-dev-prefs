@@ -160,6 +160,20 @@ gcloud config set project gleamery-non-prod
 gcloud config set compute/region us-central1
 gcloud config set compute/zone us-central1-a
 
+gcloud config configurations create great-many-prod
+gcloud config configurations activate great-many-prod
+gcloud config set account mike@redkrypton.com
+gcloud config set project great-many-prod
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-a
+
+gcloud config configurations create great-many-non-prod
+gcloud config configurations activate great-many-non-prod
+gcloud config set account mike@redkrypton.com
+gcloud config set project great-many-non-prod
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-a
+
 gcloud config configurations create verderese-development
 gcloud config configurations activate verderese-development
 gcloud config set account verderese@gmail.com
