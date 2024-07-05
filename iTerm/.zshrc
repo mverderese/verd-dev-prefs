@@ -168,6 +168,11 @@ gleamery-non-prod-db () {
     gcla gleamery-non-prod
     gcloud config set account mike@redkrypton.com
     cloud-sql-proxy --address 0.0.0.0 --port 5450 --gcloud-auth gleamery-non-prod:us-central1:gleamery-db-non-prod
+} 
+gleamery-prod-db () {
+    gcla gleamery-prod
+    gcloud config set account mike@redkrypton.com
+    cloud-sql-proxy --address 0.0.0.0 --port 5451 --gcloud-auth gleamery-prod:us-central1:gleamery-db-prod
 }   
 
 

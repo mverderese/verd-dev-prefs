@@ -110,6 +110,7 @@ gh auth login
 gcloud auth login mike@useodin.com
 gcloud auth login mike@redkrypton.com
 gcloud auth login verderse@gmail.com
+gcloud auth login ext-dev@peachystudio.com
 
 gcloud config configurations create odin-main
 gcloud config configurations activate odin-main
@@ -178,6 +179,13 @@ gcloud config configurations create verderese-development
 gcloud config configurations activate verderese-development
 gcloud config set account verderese@gmail.com
 gcloud config set project verderese-development
+gcloud config set compute/region us-central1
+gcloud config set compute/zone us-central1-a
+
+gcloud config configurations create peachy-prod
+gcloud config configurations activate peachy-prod
+gcloud config set account ext-dev@peachystduio.com
+gcloud config set project peachy-268419
 gcloud config set compute/region us-central1
 gcloud config set compute/zone us-central1-a
 
