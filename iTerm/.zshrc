@@ -92,8 +92,12 @@ docker-compose-rebuild() {
     docker-compose --compatibility up --force-recreate
 }
 
-source_dotenv() {
+source-dotenv() {
   export $(grep -v '^#' .env | xargs -0)
+}
+
+activate-virtualenv() {
+    . ./venv/bin/activate
 }
 
 alias gbdr='git push origin --delete'
