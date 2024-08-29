@@ -8,11 +8,16 @@ cd "$SCRIPT_DIR/Fonts/JetBrainsMono-2.304/"
 sudo cp *.ttf /Library/Fonts
 cd $SCRIPT_DIR
 
-file=/opt/homebrew/bin/brew
-if [ ! -e "$file" ]; then
+if [[ $(uname -m) == 'arm64' ]]; then
+    homebrew_location=/opt/homebrew/bin/brew
+else
+    homebrew_location=/usr/local/bin/brew
+fi
+
+if [ ! -e "$homebrew_location" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/mike/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    (echo; echo 'eval "$(${homebrew_location} shellenv)"') >> /Users/mike/.zprofile
+    eval "$(${homebrew_location} shellenv)"
 fi
 
 cd $SCRIPT_DIR
@@ -109,7 +114,7 @@ gh auth login
 
 gcloud auth login mike@useodin.com
 gcloud auth login mike@redkrypton.com
-gcloud auth login verderse@gmail.com
+gcloud auth login verderese@gmail.com
 gcloud auth login ext-dev@peachystudio.com
 
 gcloud config configurations create odin-main
@@ -184,7 +189,7 @@ gcloud config set compute/zone us-central1-a
 
 gcloud config configurations create peachy-prod
 gcloud config configurations activate peachy-prod
-gcloud config set account ext-dev@peachystduio.com
+gcloud config set account ext-dev@peachystudio.com
 gcloud config set project peachy-268419
 gcloud config set compute/region us-central1
 gcloud config set compute/zone us-central1-a
