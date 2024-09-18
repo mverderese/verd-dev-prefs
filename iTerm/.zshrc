@@ -37,7 +37,6 @@ bashcompinit
 plugins=(
     git
     kubectl
-    sublime
     docker
     zsh-autosuggestions
     zsh-syntax-highlighting
