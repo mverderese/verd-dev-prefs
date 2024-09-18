@@ -4,3 +4,6 @@
     branch = false
 [pull]
 	rebase = false
+[user]
+	name = Mike Verderese
+	email = verderese@gmail.com
