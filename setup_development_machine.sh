@@ -25,12 +25,6 @@ cd $SCRIPT_DIR
 mkdir -p /usr/local/bin/
 sudo chown ${USER}:admin /usr/local/bin
 
-ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-git config --global core.editor "subl -n -w"
-mkdir -p ~/Library/Application\ Support/Sublime\ Text/Packages
-rm -rf ~/Library/Application\ Support/Sublime\ Text/Packages/User
-ln -s "$SCRIPT_DIR/Sublime/Packages/User" ~/Library/Application\ Support/Sublime\ Text/Packages
-
 # Install oh-my-zsh
 file=~/.oh-my-zsh/oh-my-zsh.sh
 if [ ! -e "$file" ]; then

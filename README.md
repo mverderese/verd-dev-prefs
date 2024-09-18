@@ -1,12 +1,11 @@
 # Verd Development Tools and Preferences #
 
 A bunch of useful tools and preferences for development on NodeJS and Python on a Mac with
-SublimeText
+VS Code
 
 ## Prerequisites
-1. Install SublimeText
-2. Install SublimeText PackageControl
-3. Run SublimeText one time then close
+1. Install VS Code
+2. Install `code` command in `PATH`
 
 ## Installation
 ```

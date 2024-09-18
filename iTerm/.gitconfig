@@ -1,45 +1,6 @@
 [core]
-	editor = subl -n -w
-[user]
-	name = Mike Verderese
-	email = mike@useodin.com
-	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCb3ppzweSqifk7QHJ5QPdIGC/0fZ9WvC6jaQJLMS75QZSZ/hbhJjmYj76IoP0WoWG942nOWQqwoy1+fUnDNci5QjEDFwrCwC4neSE9uTZWnabKBfgGdR8XSS9httuq8MCfqCB5kMz5oiDYXsy22Mt2ETMMlbS8QT+mB/nh6k00psYQx8m6umxfN2lW78C43HbefXDrsR2ElUhvWz+BRuPNdC7C6CVjl+vsBeaA7BeDYUQ5aJEpNWPROYr/LSFIxvCxR2y1ojbIr55UtdMJo3+1wR8u8Uv453a9r1I/pxijVdlNaPB4oiRs805PwNLmsFsP8wUK7RUmDioK0Cjo2KMVCWxV89HMXviJ0Y5GaSbdb2N0HZuFmUGPPbZxO5H0woOcML5H9ik9HbaIBADaSM06QcePH1hR/LjBlD+UlDtmMNu0376nskcjt7c2dJwOhkB11iu5IvX3plkFhHlvA71u3WRp0yYZ8k+YS8GaUob4kBR1BqpBWNEd+QzJBRP/Pz0=
-
-
-# Usage: git total [OPTION...]
-#
-# Options:
-#
-#   In theory, the command accepts all command line options supported by
-#   the "git log" command. In reality, however, only few commit-limiting
-#   options are useful. This includes:
-#
-#   --author=PATTERN, --committer=PATTERN
-#       Displays the number of lines changed by a certain author.
-#
-#   --since=DATE, --after=DATE
-#       Counts only commits that are more recent than a specific date.
-#
-#   --until=DATE, --before=DATE
-#       Counts only commits that are older than a specific date.
-#
-#   -n NUMBER, --max-count=NUMBER
-#       Counts only a certain number of commits.
-#
-# Examples:
-#
-#   git total
-#       Displays the total number of changes.
-#
-#   git total --author=john@example.com
-#       Displays the total number of changes by john@example.com.
-
+	editor = code -n -w
 [pager]
     branch = false
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 [pull]
 	rebase = false
