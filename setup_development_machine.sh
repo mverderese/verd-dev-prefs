@@ -58,28 +58,28 @@ rm -f ./.oh-my-zsh/themes/mverderese.zsh-theme
 ln -s "$SCRIPT_DIR/iTerm/mverderese.zsh-theme" ./.oh-my-zsh/themes/mverderese.zsh-theme
 
 # Install github and git flow
-brew install gh
-brew install git-flow
+brew install --quiet gh
+brew install --quiet git-flow
 
 # Install tac
 # https://unix.stackexchange.com/a/114042/162182
-brew install coreutils
+brew install --quiet coreutils
 
 # Install speedtest_cli
-brew install speedtest_cli
+brew install --quiet speedtest_cli
 
 # Install terminal notifier
-brew install terminal-notifier
+brew install --quiet terminal-notifier
 
 # Install useful tools
-brew install tree
-brew install tmux
-brew install tig
-brew install postgresql
-brew install htop
-brew install ffmpeg
-brew install glow
-brew install pgcli
+brew install --quiet tree
+brew install --quiet tmux
+brew install --quiet tig
+brew install --quiet postgresql
+brew install --quiet htop
+brew install --quiet ffmpeg
+brew install --quiet glow
+brew install --quiet pgcli
 
 # Upgrade brews
 brew upgrade
@@ -106,73 +106,73 @@ brew install --cask docker
 
 gh auth login
 
-gcloud auth login mike@useodin.com
-gcloud auth login mike@redkrypton.com
 gcloud auth login verderese@gmail.com
-gcloud auth login ext-dev@peachystudio.com
+# gcloud auth login mike@useodin.com
+# gcloud auth login mike@redkrypton.com
+# gcloud auth login ext-dev@peachystudio.com
 
-gcloud config configurations create odin-main
-gcloud config configurations activate odin-main
-gcloud config set account mike@useodin.com
-gcloud config set project odin-main
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
+# gcloud config configurations create odin-main
+# gcloud config configurations activate odin-main
+# gcloud config set account mike@useodin.com
+# gcloud config set project odin-main
+# gcloud config set compute/region us-central1
+# gcloud config set compute/zone us-central1-a
 
-gcloud config configurations create odin-prod
-gcloud config configurations activate odin-prod
-gcloud config set account mike@useodin.com
-gcloud config set project odin-prod
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
+# gcloud config configurations create odin-prod
+# gcloud config configurations activate odin-prod
+# gcloud config set account mike@useodin.com
+# gcloud config set project odin-prod
+# gcloud config set compute/region us-central1
+# gcloud config set compute/zone us-central1-a
 
-gcloud config configurations create odin-infra
-gcloud config configurations activate odin-infra
-gcloud config set account mike@useodin.com
-gcloud config set project odin-infra
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
+# gcloud config configurations create odin-infra
+# gcloud config configurations activate odin-infra
+# gcloud config set account mike@useodin.com
+# gcloud config set project odin-infra
+# gcloud config set compute/region us-central1
+# gcloud config set compute/zone us-central1-a
 
-gcloud config configurations create wellcore-non-prod
-gcloud config configurations activate wellcore-non-prod
-gcloud config set account mike@redkrypton.com
-gcloud config set project wellcore-cloud-non-prod
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
+# gcloud config configurations create wellcore-non-prod
+# gcloud config configurations activate wellcore-non-prod
+# gcloud config set account mike@redkrypton.com
+# gcloud config set project wellcore-cloud-non-prod
+# gcloud config set compute/region us-central1
+# gcloud config set compute/zone us-central1-a
 
-gcloud config configurations create wellcore-prod
-gcloud config configurations activate wellcore-prod
-gcloud config set account mike@redkrypton.com
-gcloud config set project wellcore-cloud-prod
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
+# gcloud config configurations create wellcore-prod
+# gcloud config configurations activate wellcore-prod
+# gcloud config set account mike@redkrypton.com
+# gcloud config set project wellcore-cloud-prod
+# gcloud config set compute/region us-central1
+# gcloud config set compute/zone us-central1-a
 
-gcloud config configurations create gleamery-prod
-gcloud config configurations activate gleamery-prod
-gcloud config set account mike@redkrypton.com
-gcloud config set project gleamery-prod
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
+# gcloud config configurations create gleamery-prod
+# gcloud config configurations activate gleamery-prod
+# gcloud config set account mike@redkrypton.com
+# gcloud config set project gleamery-prod
+# gcloud config set compute/region us-central1
+# gcloud config set compute/zone us-central1-a
 
-gcloud config configurations create gleamery-non-prod
-gcloud config configurations activate gleamery-non-prod
-gcloud config set account mike@redkrypton.com
-gcloud config set project gleamery-non-prod
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
+# gcloud config configurations create gleamery-non-prod
+# gcloud config configurations activate gleamery-non-prod
+# gcloud config set account mike@redkrypton.com
+# gcloud config set project gleamery-non-prod
+# gcloud config set compute/region us-central1
+# gcloud config set compute/zone us-central1-a
 
-gcloud config configurations create great-many-prod
-gcloud config configurations activate great-many-prod
-gcloud config set account mike@redkrypton.com
-gcloud config set project great-many-prod
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
+# gcloud config configurations create great-many-prod
+# gcloud config configurations activate great-many-prod
+# gcloud config set account mike@redkrypton.com
+# gcloud config set project great-many-prod
+# gcloud config set compute/region us-central1
+# gcloud config set compute/zone us-central1-a
 
-gcloud config configurations create great-many-non-prod
-gcloud config configurations activate great-many-non-prod
-gcloud config set account mike@redkrypton.com
-gcloud config set project great-many-non-prod
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
+# gcloud config configurations create great-many-non-prod
+# gcloud config configurations activate great-many-non-prod
+# gcloud config set account mike@redkrypton.com
+# gcloud config set project great-many-non-prod
+# gcloud config set compute/region us-central1
+# gcloud config set compute/zone us-central1-a
 
 gcloud config configurations create verderese-development
 gcloud config configurations activate verderese-development
@@ -181,20 +181,17 @@ gcloud config set project verderese-development
 gcloud config set compute/region us-central1
 gcloud config set compute/zone us-central1-a
 
-gcloud config configurations create peachy-prod
-gcloud config configurations activate peachy-prod
-gcloud config set account ext-dev@peachystudio.com
-gcloud config set project peachy-268419
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
+# gcloud config configurations create peachy-prod
+# gcloud config configurations activate peachy-prod
+# gcloud config set account ext-dev@peachystudio.com
+# gcloud config set project peachy-268419
+# gcloud config set compute/region us-central1
+# gcloud config set compute/zone us-central1-a
 
-gcloud auth configure-docker
-gcloud auth configure-docker us-central1-docker.pkg.dev
-gcloud auth configure-docker us-docker.pkg.dev
+# gcloud auth configure-docker
+# gcloud auth configure-docker us-central1-docker.pkg.dev
+# gcloud auth configure-docker us-docker.pkg.dev
 
 brew install cloud-sql-proxy
-
-# https://forum.sublimetext.com/t/package-control-not-working-at-all/29219/7
-ln -sf /usr/local/Cellar/openssl@1.1/1.1.1o/lib/libcrypto.dylib /usr/local/lib/
 
 terminal-notifier -message "Done setting up dev machine"
