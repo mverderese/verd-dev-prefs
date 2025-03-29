@@ -126,6 +126,51 @@ gpasfforce () {
 
 gcla () { gcloud config configurations activate $1 }
 gcll () { gcloud config configurations list }
+cleanup-branches () {
+    # Get current branch
+    CURRENT_BRANCH=$(git branch --show-current)
+
+    # Try to determine default branch - usually main or master
+    DEFAULT_BRANCH=$(git remote show origin | grep "HEAD branch" | cut -d ":" -f 2 | xargs)
+
+    # If we couldn't determine default branch, default to main
+    if [ -z "$DEFAULT_BRANCH" ]; then
+    DEFAULT_BRANCH="main"
+    fi
+
+    # Show which branches will be kept
+    echo -e "The following branches will be KEPT:\n"
+    echo "- $CURRENT_BRANCH (current branch)"
+    echo "- $DEFAULT_BRANCH (default branch)"
+
+    # Get branches that will be deleted
+    BRANCHES_TO_DELETE=$(git branch | grep -v "^*" | grep -v "$DEFAULT_BRANCH" | tr -d ' ')
+
+    # Check if there are branches to delete
+    if [ -z "$BRANCHES_TO_DELETE" ]; then
+    echo -e "\nNo branches to delete. Exiting."
+    exit 0
+    fi
+
+    # Show branches that will be deleted
+    echo -e "\nThe following branches will be DELETED:\n"
+    echo "$BRANCHES_TO_DELETE"
+
+    # Ask for confirmation
+    echo -e "\nAre you sure you want to delete these branches? (y/n)"
+    read -r CONFIRM
+
+    if [[ $CONFIRM =~ ^[Yy]$ ]]; then
+    echo "Deleting branches..."
+    for branch in $BRANCHES_TO_DELETE; do
+        git branch -D "$branch"
+        echo "Deleted branch: $branch"
+    done
+    echo "Done!"
+    else
+    echo "Operation cancelled."
+    fi
+}
 
 verd-dev-db () {
     gcla verderese-development
@@ -160,3 +205,4 @@ eval "$(pyenv init -)"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$(which brew):$PATH"
