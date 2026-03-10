@@ -1,5 +1,5 @@
 [core]
-	editor = code -n -w
+	editor = webstorm -e --wait
 [pager]
     branch = false
 [pull]

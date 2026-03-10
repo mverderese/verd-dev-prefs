@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-xcode-select --install
+xcode-select -p &>/dev/null || xcode-select --install
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -33,165 +33,56 @@ if [ ! -e "$file" ]; then
     exit
 fi
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ] && \
+    git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ] && \
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 
 brew update && brew upgrade
 
-
-# Create symbolic links for oh-my-zsh
+# Create symbolic links for dotfiles
 cd ~/
 
 rm -f ./.zshrc
-ln -s "$SCRIPT_DIR/iTerm/.zshrc" ./.zshrc
-
-rm -f ./.tmux.conf
-ln -s "$SCRIPT_DIR/iTerm/.tmux.conf" ./.tmux.conf
-
-rm -f ./.bash_profile
-ln -s "$SCRIPT_DIR/iTerm/.bash_profile" ./.bash_profile
+ln -s "$SCRIPT_DIR/dotfiles/dotzshrc" ~/.zshrc
 
 rm -f ./.gitconfig
-ln -s "$SCRIPT_DIR/iTerm/.gitconfig" ./.gitconfig
+ln -s "$SCRIPT_DIR/dotfiles/dotgitconfig" ~/.gitconfig
 
 rm -f ./.oh-my-zsh/themes/mverderese.zsh-theme
-ln -s "$SCRIPT_DIR/iTerm/mverderese.zsh-theme" ./.oh-my-zsh/themes/mverderese.zsh-theme
+ln -s "$SCRIPT_DIR/dotfiles/mverderese.zsh-theme" ~/.oh-my-zsh/themes/mverderese.zsh-theme
 
-# Install github and git flow
+
+brew install --quiet fnm
+brew install --quiet uv
 brew install --quiet gh
-brew install --quiet git-flow
-
-# Install tac
-# https://unix.stackexchange.com/a/114042/162182
-brew install --quiet coreutils
-
-# Install speedtest_cli
-brew install --quiet speedtest_cli
-
-# Install terminal notifier
 brew install --quiet terminal-notifier
-
-# Install useful tools
+brew install --quiet speedtest_cli
 brew install --quiet tree
 brew install --quiet tmux
 brew install --quiet tig
-brew install --quiet postgresql
-brew install --quiet htop
 brew install --quiet ffmpeg
-brew install --quiet glow
 brew install --quiet pgcli
-
-# Upgrade brews
-brew upgrade
-
-# Install python
-echo "Installing Python Dependencies"
-brew install pyenv
-echo "Done!"
-echo
-
-echo "Installing Python 3.12.0"
-pyenv install 3.12.0
-echo "Done!"
-pyenv global 3.12.0
-pyenv exec pip install --upgrade pip
-
-# Install node
-brew install nodenv
-nodenv install 20.9.0
-nodenv global 20.9.0
 
 brew install --cask google-cloud-sdk
 brew install --cask docker
 
-gh auth login
+# Install/update latest LTS Node via fnm and pin as default
+fnm install --lts
+fnm default lts-latest
+fnm use lts-latest
+npm update -g
+npm install -g @anthropic-ai/claude-code
 
-gcloud auth login verderese@gmail.com
-# gcloud auth login mike@useodin.com
-# gcloud auth login mike@redkrypton.com
-# gcloud auth login ext-dev@peachystudio.com
+# Install/update latest Python via uv and pin as default
+uv python install 3
+uv python pin $(uv python list --only-installed | grep -oE '3\.[0-9]+\.[0-9]+' | head -1)
 
-# gcloud config configurations create odin-main
-# gcloud config configurations activate odin-main
-# gcloud config set account mike@useodin.com
-# gcloud config set project odin-main
-# gcloud config set compute/region us-central1
-# gcloud config set compute/zone us-central1-a
-
-# gcloud config configurations create odin-prod
-# gcloud config configurations activate odin-prod
-# gcloud config set account mike@useodin.com
-# gcloud config set project odin-prod
-# gcloud config set compute/region us-central1
-# gcloud config set compute/zone us-central1-a
-
-# gcloud config configurations create odin-infra
-# gcloud config configurations activate odin-infra
-# gcloud config set account mike@useodin.com
-# gcloud config set project odin-infra
-# gcloud config set compute/region us-central1
-# gcloud config set compute/zone us-central1-a
-
-# gcloud config configurations create wellcore-non-prod
-# gcloud config configurations activate wellcore-non-prod
-# gcloud config set account mike@redkrypton.com
-# gcloud config set project wellcore-cloud-non-prod
-# gcloud config set compute/region us-central1
-# gcloud config set compute/zone us-central1-a
-
-# gcloud config configurations create wellcore-prod
-# gcloud config configurations activate wellcore-prod
-# gcloud config set account mike@redkrypton.com
-# gcloud config set project wellcore-cloud-prod
-# gcloud config set compute/region us-central1
-# gcloud config set compute/zone us-central1-a
-
-# gcloud config configurations create gleamery-prod
-# gcloud config configurations activate gleamery-prod
-# gcloud config set account mike@redkrypton.com
-# gcloud config set project gleamery-prod
-# gcloud config set compute/region us-central1
-# gcloud config set compute/zone us-central1-a
-
-# gcloud config configurations create gleamery-non-prod
-# gcloud config configurations activate gleamery-non-prod
-# gcloud config set account mike@redkrypton.com
-# gcloud config set project gleamery-non-prod
-# gcloud config set compute/region us-central1
-# gcloud config set compute/zone us-central1-a
-
-# gcloud config configurations create great-many-prod
-# gcloud config configurations activate great-many-prod
-# gcloud config set account mike@redkrypton.com
-# gcloud config set project great-many-prod
-# gcloud config set compute/region us-central1
-# gcloud config set compute/zone us-central1-a
-
-# gcloud config configurations create great-many-non-prod
-# gcloud config configurations activate great-many-non-prod
-# gcloud config set account mike@redkrypton.com
-# gcloud config set project great-many-non-prod
-# gcloud config set compute/region us-central1
-# gcloud config set compute/zone us-central1-a
-
-gcloud config configurations create verderese-development
-gcloud config configurations activate verderese-development
-gcloud config set account verderese@gmail.com
+gcloud auth list --filter=status:ACTIVE --format="value(account)" 2>/dev/null | grep -q . || gcloud auth login
 gcloud config set project verderese-development
-gcloud config set compute/region us-central1
-gcloud config set compute/zone us-central1-a
 
-# gcloud config configurations create peachy-prod
-# gcloud config configurations activate peachy-prod
-# gcloud config set account ext-dev@peachystudio.com
-# gcloud config set project peachy-268419
-# gcloud config set compute/region us-central1
-# gcloud config set compute/zone us-central1-a
-
-# gcloud auth configure-docker
-# gcloud auth configure-docker us-central1-docker.pkg.dev
-# gcloud auth configure-docker us-docker.pkg.dev
-
-brew install cloud-sql-proxy
+npm install -g @googleworkspace/cli
+[ ! -f "$HOME/.config/gws/credentials.enc" ] && gws auth setup
+[ ! -f "$HOME/.config/gws/token_cache.json" ] && gws auth login
 
 terminal-notifier -message "Done setting up dev machine"

@@ -9,7 +9,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 
-export EDITOR="/usr/local/bin/subl"
+export EDITOR="webstorm -e --wait"
 
 # https://www.michaelehead.com/2016/02/06/installing-gems-without-sudo.html
 # Fix ruby sudo install
@@ -27,9 +27,6 @@ export PATH="$GEM_HOME/bin:$PATH"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="mverderese"
 
-autoload bashcompinit
-bashcompinit
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -43,9 +40,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# Source external files
-source $HOME/.bash_profile
 
 ###
 #
@@ -176,7 +170,7 @@ verd-dev-db () {
     gcla verderese-development
     gcloud config set account verderese@gmail.com
     cloud-sql-proxy --address 0.0.0.0 --port 5440 --gcloud-auth verderese-development:us-central1:verd-dev-db
-}   
+}
 
 
 
@@ -195,14 +189,20 @@ alias pag='ps aux | grep -i $1'
 
 alias randpass='openssl rand -base64 30'
 
-eval "$(nodenv init -)"
+claude() {
+    export GITHUB_PERSONAL_ACCESS_TOKEN=$(op read "op://Private/Github/Personal Access Token - Mikes MacBook Pro" --no-newline 2>/dev/null)
+    command claude "$@"
+}
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(uv generate-shell-completion zsh)"
 
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$(which brew):$PATH"
+
+alias edit="webstorm -e"
