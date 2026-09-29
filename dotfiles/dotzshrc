@@ -203,6 +203,5 @@ eval "$(uv generate-shell-completion zsh)"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$(which brew):$PATH"
 
 alias edit="webstorm -e"
