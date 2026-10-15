@@ -52,6 +52,14 @@ ln -s "$SCRIPT_DIR/dotfiles/dotgitconfig" ~/.gitconfig
 rm -f ./.oh-my-zsh/themes/mverderese.zsh-theme
 ln -s "$SCRIPT_DIR/dotfiles/mverderese.zsh-theme" ~/.oh-my-zsh/themes/mverderese.zsh-theme
 
+mkdir -p ~/.config/git
+rm -f ./.config/git/ignore
+ln -s "$SCRIPT_DIR/dotfiles/dotgitignore_global" ~/.config/git/ignore
+
+mkdir -p ~/.claude
+rm -f ./.claude/CLAUDE.md
+ln -s "$SCRIPT_DIR/dotfiles/claude-global.md" ~/.claude/CLAUDE.md
+
 
 brew install --quiet fnm
 brew install --quiet uv

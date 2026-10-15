@@ -6,7 +6,7 @@ Personal dotfiles and dev machine setup for macOS. Running `setup_development_ma
 
 ## Folder Layout
 
-- `dotfiles/` — shell config files (zshrc, gitconfig, zsh theme). Files use `dot` prefix instead of `.` to avoid hidden-file confusion in editors.
+- `dotfiles/` — shell config files (zshrc, gitconfig, global gitignore, zsh theme) and global Claude Code instructions. `claude-global.md` is deliberately not named `CLAUDE.md` so Claude Code doesn't load it as project instructions for this folder. Files use `dot` prefix instead of `.` to avoid hidden-file confusion in editors.
 - `iTerm/` — iTerm2 app-level config only (`com.googlecode.iterm2.plist`).
 - `Fonts/` — JetBrains Mono font files.
 - `Alfred/` — Alfred preferences.
@@ -21,6 +21,8 @@ The setup script creates symlinks from the repo into `~`:
 | `dotfiles/dotzshrc` | `~/.zshrc` |
 | `dotfiles/dotgitconfig` | `~/.gitconfig` |
 | `dotfiles/mverderese.zsh-theme` | `~/.oh-my-zsh/themes/mverderese.zsh-theme` |
+| `dotfiles/dotgitignore_global` | `~/.config/git/ignore` (git's default global excludes file) |
+| `dotfiles/claude-global.md` | `~/.claude/CLAUDE.md` (user-level Claude Code instructions) |
 
 Edit the files in this repo — changes take effect immediately since the shell reads through the symlink.
 
