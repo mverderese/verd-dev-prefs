@@ -9,7 +9,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 
-export EDITOR="webstorm -e --wait"
+export EDITOR="code --wait"
 
 # https://www.michaelehead.com/2016/02/06/installing-gems-without-sudo.html
 # Fix ruby sudo install
@@ -189,10 +189,10 @@ alias pag='ps aux | grep -i $1'
 
 alias randpass='openssl rand -base64 30'
 
-claude() {
-    export GITHUB_PERSONAL_ACCESS_TOKEN=$(op read "op://Private/Github/Personal Access Token - Mikes MacBook Pro" --no-newline 2>/dev/null)
-    command claude "$@"
-}
+# claude() {
+#     export GITHUB_PERSONAL_ACCESS_TOKEN=$(op read "op://Private/Github/Personal Access Token - Mikes MacBook Pro" --no-newline 2>/dev/null)
+#     command claude "$@"
+# }
 
 eval "$(fnm env --use-on-cd --shell zsh)"
 
@@ -204,4 +204,9 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 export PATH="/usr/local/sbin:$PATH"
 
-alias edit="webstorm -e"
+
+# >>> claude-odin profile >>>
+claude-odin() {
+  CLAUDE_CONFIG_DIR="$HOME/.claude-odin" claude "$@"
+}
+# <<< claude-odin profile <<<
