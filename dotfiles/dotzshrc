@@ -41,6 +41,11 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Terminal colors (light/dark switching -- `theme light|dark|toggle`).
+# Sourced after oh-my-zsh so its LS_COLORS override wins. ${(%):-%x} resolves
+# to this file (a symlink) and :A follows it back to the repo.
+source "${${(%):-%x}:A:h}/colors.zsh"
+
 ###
 #
 # Terminal alsiases and functions

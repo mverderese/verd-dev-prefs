@@ -60,6 +60,9 @@ mkdir -p ~/.claude
 rm -f ./.claude/CLAUDE.md
 ln -s "$SCRIPT_DIR/dotfiles/claude-global.md" ~/.claude/CLAUDE.md
 
+rm -f ./.claude/statusline-command.sh
+ln -s "$SCRIPT_DIR/dotfiles/statusline-command.sh" ~/.claude/statusline-command.sh
+
 
 brew install --quiet fnm
 brew install --quiet uv
@@ -67,6 +70,7 @@ brew install --quiet gh
 brew install --quiet terminal-notifier
 brew install --quiet speedtest_cli
 brew install --quiet tree
+brew install --quiet coreutils
 brew install --quiet tmux
 brew install --quiet tig
 brew install --quiet ffmpeg
