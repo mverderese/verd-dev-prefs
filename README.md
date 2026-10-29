@@ -4,7 +4,7 @@ A modern Mac dev machine setup for Node.js and Python development.
 
 ## Installation
 ```
-bash ./setup_development_machine.sh
+bash ./setup.sh
 ```
 
 You'll be prompted for your root password a few times.
@@ -36,5 +36,5 @@ verd-dev-prefs/
 │   └── com.googlecode.iterm2.plist
 ├── Fonts/
 ├── Alfred/
-└── setup_development_machine.sh
+└── setup.sh
 ```

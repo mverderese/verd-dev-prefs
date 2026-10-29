@@ -41,13 +41,18 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Terminal colors (light/dark switching -- `theme light|dark|toggle`).
+# Sourced after oh-my-zsh so its LS_COLORS override wins. ${(%):-%x} resolves
+# to this file (a symlink) and :A follows it back to the repo.
+source "${${(%):-%x}:A:h}/colors.zsh"
+
 ###
 #
 # Terminal alsiases and functions
 #
 ###
 
-termnot() { terminal-notifier -sound Ping -message "$1" -execute 'open /Applications/iTerm.app'; }
+termnot() { osascript -e 'on run argv' -e 'display notification (item 1 of argv) with title "Terminal" sound name "Ping"' -e 'end run' "$1"; }
 
 utime () {
     if [[ -n "$1" ]]; then
@@ -188,6 +193,9 @@ tcp-process() {
 alias pag='ps aux | grep -i $1'
 
 alias randpass='openssl rand -base64 30'
+
+alias restart-finder='killall Finder'
+alias restart-menubar='killall SystemUIServer ControlCenter'
 
 # claude() {
 #     export GITHUB_PERSONAL_ACCESS_TOKEN=$(op read "op://Private/Github/Personal Access Token - Mikes MacBook Pro" --no-newline 2>/dev/null)
