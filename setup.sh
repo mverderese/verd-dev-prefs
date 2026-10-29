@@ -82,6 +82,7 @@ brew install --cask docker
 fnm install --lts
 fnm default lts-latest
 fnm use lts-latest
+npm install -g npm@latest
 npm update -g
 
 # Install/update latest Python via uv and pin as default
