@@ -194,6 +194,9 @@ alias pag='ps aux | grep -i $1'
 
 alias randpass='openssl rand -base64 30'
 
+alias restart-finder='killall Finder'
+alias restart-menubar='killall SystemUIServer ControlCenter'
+
 # claude() {
 #     export GITHUB_PERSONAL_ACCESS_TOKEN=$(op read "op://Private/Github/Personal Access Token - Mikes MacBook Pro" --no-newline 2>/dev/null)
 #     command claude "$@"

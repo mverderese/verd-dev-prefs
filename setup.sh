@@ -38,6 +38,9 @@ fi
 [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ] && \
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 
+# Newer Homebrew asks for confirmation by default; run unattended.
+export HOMEBREW_NO_ASK=1
+
 brew update && brew upgrade
 
 # Create symbolic links for dotfiles
