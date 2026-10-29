@@ -28,9 +28,9 @@ sudo chown ${USER}:admin /usr/local/bin
 # Install oh-my-zsh
 file=~/.oh-my-zsh/oh-my-zsh.sh
 if [ ! -e "$file" ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    echo "\n\n\nRun this script again!"
-    exit
+    # --unattended skips the chsh prompt and the final `exec zsh` that would end this script;
+    # KEEP_ZSHRC leaves ~/.zshrc alone (it gets symlinked below).
+    RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
 [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ] && \
@@ -77,7 +77,6 @@ brew install --quiet coreutils
 brew install --quiet tmux
 brew install --quiet tig
 brew install --quiet ffmpeg
-brew install --quiet pgcli
 
 brew install --cask google-cloud-sdk
 brew install --cask docker
@@ -87,7 +86,6 @@ fnm install --lts
 fnm default lts-latest
 fnm use lts-latest
 npm update -g
-npm install -g @anthropic-ai/claude-code
 
 # Install/update latest Python via uv and pin as default
 uv python install 3
@@ -95,9 +93,5 @@ uv python pin $(uv python list --only-installed | grep -oE '3\.[0-9]+\.[0-9]+' |
 
 gcloud auth list --filter=status:ACTIVE --format="value(account)" 2>/dev/null | grep -q . || gcloud auth login
 gcloud config set project verderese-development
-
-npm install -g @googleworkspace/cli
-[ ! -f "$HOME/.config/gws/credentials.enc" ] && gws auth setup
-[ ! -f "$HOME/.config/gws/token_cache.json" ] && gws auth login
 
 terminal-notifier -message "Done setting up dev machine"
