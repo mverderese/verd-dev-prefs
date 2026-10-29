@@ -2,7 +2,7 @@
 
 ## Project Purpose
 
-Personal dotfiles and dev machine setup for macOS. Running `setup_development_machine.sh` bootstraps a fresh Mac with all tools and symlinks config files into place.
+Personal dotfiles and dev machine setup for macOS. Running `setup.sh` bootstraps a fresh Mac with all tools and symlinks config files into place.
 
 ## Folder Layout
 
@@ -10,7 +10,7 @@ Personal dotfiles and dev machine setup for macOS. Running `setup_development_ma
 - `iTerm/` — iTerm2 app-level config only (`com.googlecode.iterm2.plist`).
 - `Fonts/` — JetBrains Mono font files.
 - `Alfred/` — Alfred preferences.
-- `setup_development_machine.sh` — main bootstrap script.
+- `setup.sh` — main bootstrap script.
 
 ## How Symlinks Work
 
@@ -29,7 +29,7 @@ Edit the files in this repo — changes take effect immediately since the shell 
 
 ## Adding New Tools
 
-Add `brew install <tool>` to `setup_development_machine.sh`. For Node-based global tools, install after the `fnm install --lts` block so Node is available.
+Add `brew install <tool>` to `setup.sh`. For Node-based global tools, install after the `fnm install --lts` block so Node is available.
 
 ## Local Overrides
 
