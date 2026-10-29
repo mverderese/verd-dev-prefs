@@ -70,11 +70,8 @@ ln -s "$SCRIPT_DIR/dotfiles/statusline-command.sh" ~/.claude/statusline-command.
 brew install --quiet fnm
 brew install --quiet uv
 brew install --quiet gh
-brew install --quiet terminal-notifier
-brew install --quiet speedtest_cli
 brew install --quiet tree
 brew install --quiet coreutils
-brew install --quiet tmux
 brew install --quiet tig
 brew install --quiet ffmpeg
 
@@ -94,4 +91,4 @@ uv python pin $(uv python list --only-installed | grep -oE '3\.[0-9]+\.[0-9]+' |
 gcloud auth list --filter=status:ACTIVE --format="value(account)" 2>/dev/null | grep -q . || gcloud auth login
 gcloud config set project verderese-development
 
-terminal-notifier -message "Done setting up dev machine"
+osascript -e 'display notification "Done setting up dev machine" with title "Setup" sound name "Ping"'

@@ -52,7 +52,7 @@ source "${${(%):-%x}:A:h}/colors.zsh"
 #
 ###
 
-termnot() { terminal-notifier -sound Ping -message "$1" -execute 'open /Applications/iTerm.app'; }
+termnot() { osascript -e 'on run argv' -e 'display notification (item 1 of argv) with title "Terminal" sound name "Ping"' -e 'end run' "$1"; }
 
 utime () {
     if [[ -n "$1" ]]; then
