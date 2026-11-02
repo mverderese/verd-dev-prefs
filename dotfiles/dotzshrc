@@ -107,6 +107,38 @@ alias gdst='git diff --stat'
 alias gdsst='git diff --shortstat'
 alias glom='git pull origin $(git_main_branch)'
 
+# Remove all linked worktrees in the current repo (the main worktree is kept).
+# Prompts for confirmation before removing any worktree with uncommitted changes.
+gwtda() {
+  local main wt
+  main=$(git worktree list --porcelain 2>/dev/null | awk '/^worktree /{sub(/^worktree /,""); print; exit}')
+  [[ -z $main ]] && { echo "Not in a git repository" >&2; return 1; }
+  cd "$main" || return 1
+  git worktree list --porcelain | awk '/^worktree /{sub(/^worktree /,""); print}' | tail -n +2 | while IFS= read -r wt; do
+    if [[ -n $(git -C "$wt" status --porcelain 2>/dev/null) ]]; then
+      git -C "$wt" status --short
+      local ans msg
+      read -k 1 "ans?Worktree '$wt' has uncommitted changes. [d]elete anyway, [c]ommit first, [S]kip? " </dev/tty
+      echo
+      case $ans in
+        d|D) git worktree remove --force "$wt" ;;
+        c|C)
+          read -r "msg?Commit message: " </dev/tty
+          if [[ -n $msg ]] && git -C "$wt" add -A && git -C "$wt" commit -m "$msg"; then
+            git worktree remove "$wt"
+          else
+            echo "Commit failed or empty message; skipped $wt"
+          fi ;;
+        *) echo "Skipped $wt" ;;
+      esac
+    else
+      git worktree remove "$wt"
+    fi
+  done
+  git worktree prune
+}
+alias gwtd='gwtda'
+
 gpasf () {
     for d in *; do
       if [ -d "$d/.git/" ]; then         # or:  if test -d "$d"; then
